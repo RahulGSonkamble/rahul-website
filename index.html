@@ -38,6 +38,8 @@
     .stats{display:flex;gap:18px;flex-wrap:wrap}
     .stat{min-width:160px;text-align:center;padding:14px 10px;border:1px dashed var(--ring);border-radius:12px;background:var(--bg)}
     .stat .num{font-size:32px;font-weight:800;color:var(--pcu-primary)}
+    /* NEW: suffix like "+" inline with the number */
+    .num::after{content:attr(data-suffix);margin-left:2px}
     table{width:100%;border-collapse:collapse} th,td{padding:10px;border-bottom:1px solid var(--ring);vertical-align:top} th{text-align:left}
     .gallery{display:grid;gap:10px;grid-template-columns:repeat(3,1fr)} .gallery img{width:100%;border-radius:10px;border:1px solid var(--ring)}
     @media(max-width:700px){.gallery{grid-template-columns:1fr 1fr}}
@@ -63,6 +65,7 @@
 <a class="skip" href="#main">Skip to content</a>
 <div id="progress"></div>
 
+<!-- HEADER (no stats here) -->
 <header>
   <div class="container">
     <nav aria-label="Primary">
@@ -73,13 +76,6 @@
         <a href="#mou">Industry MoUs</a><a href="#events">Events & FDPs</a><a href="#certs">Certifications</a>
         <a href="#memberships">Memberships</a><a href="#contact">Contact</a><a href="#resume">Resume</a>
       </div>
-      <div class="stat">
-  <div>
-    <span class="num" data-count="1500">0</span><span class="plus">+</span>
-  </div>
-  <div class="muted">Students Mentored</div>
-</div>
-
     </nav>
   </div>
 </header>
@@ -89,20 +85,22 @@
   <section id="home" class="hero">
     <div class="halo"></div>
     <div class="container">
-      <p class="kicker" style="letter-spacing:.2em;text-transform:uppercase;color:#c62828;font-weight:700;font-size:12px">Welcome on my perosnal web page</p>
+      <p class="kicker" style="letter-spacing:.2em;text-transform:uppercase;color:#c62828;font-weight:700;font-size:12px">Welcome on my personal web page</p>
       <h1>Dr. Rahul Ganpatrao Sonkamble</h1>
       <p class="lead">Assistant Professor — CSE (AI&ML), Pimpri Chinchwad University</p>
       <p class="lead">Academic Coordinator — CSE (AI&ML)</p>
+
+      <!-- STATS (including 1500+) -->
       <div class="stats" aria-label="My life in numbers">
-  <div class="stat"><div class="num" data-count="11">0</div><div class="muted">Years Teaching</div></div>
-  <div class="stat"><div class="num" data-count="4">0</div><div class="muted">Industrial MoUs</div></div>
-  <div class="stat"><div class="num" data-count="27">0</div><div class="muted">Student Internships Facilitated</div></div>
-  <div class="stat"><div class="num" data-count="36">0</div><div class="muted">Publications</div></div>
-  <div class="stat"><div class="num" data-count="1500" data-suffix="+">0</div><div class="muted">Students Mentored</div></div>
-  <div class="stat"><div class="num" data-count="5">0</div><div class="muted">IPR</div></div>
-  <div class="stat"><div class="num" data-count="2">0</div><div class="muted">Developed PoC</div></div>
-  <div class="stat"><div class="num" data-count="5">0</div><div class="muted">Certifications</div></div>
-</div>
+        <div class="stat"><div class="num" data-count="11">0</div><div class="muted">Years Teaching</div></div>
+        <div class="stat"><div class="num" data-count="4">0</div><div class="muted">Industrial MoUs</div></div>
+        <div class="stat"><div class="num" data-count="27">0</div><div class="muted">Student Internships Facilitated</div></div>
+        <div class="stat"><div class="num" data-count="36">0</div><div class="muted">Publications</div></div>
+        <div class="stat"><div class="num" data-count="1500" data-suffix="+">0</div><div class="muted">Students Mentored</div></div>
+        <div class="stat"><div class="num" data-count="5">0</div><div class="muted">IPR</div></div>
+        <div class="stat"><div class="num" data-count="2">0</div><div class="muted">Developed PoC</div></div>
+        <div class="stat"><div class="num" data-count="5">0</div><div class="muted">Certifications</div></div>
+      </div>
 
       <div class="pillbar" style="margin-top:14px">
         <span class="badge">Blockchain</span><span class="badge">Ethereum</span><span class="badge">Hyperledger Fabric</span>
@@ -117,17 +115,17 @@
     <div class="container grid grid-2">
       <div>
         <h2>About Me</h2>
-       <p style="text-align: justify;">
-I am <strong>Dr. Rahul G. Sonkamble</strong>, Assistant Professor (CSE — AI&ML) at Pimpri Chinchwad University, Pune. I have 11+ years of academic experience. I hold a Ph.D. in Computer Science and Engineering with a focus on Privacy-Preserving Interoperable Blockchain for Electronic Health Records (EHR). My research expertise spans Blockchain, Zero-Knowledge Proofs (ZKPs), Artificial Intelligence, Machine Learning, and Cybersecurity, with 25+ publications in reputed journals including Nature Scientific Reports, IEEE Access, MDPI, and MethodsX. Beyond research, I actively foster industry–academia collaborations, enabling 27+ student internships through MoUs with companies like Klyntra, dHealth Network, Hypermine, and Accelchain. As a mentor and coordinator, I have successfully guided students in projects, workshops, and international symposiums, while also leading initiatives under IEEE and ACM Student Chapters. My vision integrates cutting-edge blockchain and AI applications with academic innovation, ensuring impactful contributions to research, teaching, and industry.
-</p>
+        <p style="text-align: justify;">
+          I am <strong>Dr. Rahul G. Sonkamble</strong>, Assistant Professor (CSE — AI&ML) at Pimpri Chinchwad University, Pune. I have 11+ years of academic experience. I hold a Ph.D. in Computer Science and Engineering with a focus on Privacy-Preserving Interoperable Blockchain for Electronic Health Records (EHR). My research expertise spans Blockchain, Zero-Knowledge Proofs (ZKPs), Artificial Intelligence, Machine Learning, and Cybersecurity, with 25+ publications in reputed journals including Nature Scientific Reports, IEEE Access, MDPI, and MethodsX. Beyond research, I actively foster industry–academia collaborations, enabling 27+ student internships through MoUs with companies like Klyntra, dHealth Network, Hypermine, and Accelchain. As a mentor and coordinator, I have successfully guided students in projects, workshops, and international symposiums, while also leading initiatives under IEEE and ACM Student Chapters. My vision integrates cutting-edge blockchain and AI applications with academic innovation, ensuring impactful contributions to research, teaching, and industry.
+        </p>
         <ul>
           <li><strong>Official email:</strong> <a href="mailto:rahul.sonkamble@pcu.edu.in">rahul.sonkamble@pcu.edu.in</a></li>
-          <li><strong></strong> <a href="https://scholar.google.com/citations?user=plh3lIEAAAAJ&hl=en&authuser=1" target="_blank" rel="noopener">Google Scholar</a></li>
-          <strong></strong> <a href="https://www.scopus.com/authid/detail.uri?authorId=57221957374" target="_blank" rel="noopener">Scopus</a>
-          <strong></strong> <a href="https://www.webofscience.com/wos/author/record/ADJ-8925-2022" target="_blank" rel="noopener">Web of Science</a>
-          <strong></strong> <a href="https://orcid.org/0000-0001-6075-9519" target="_blank" rel="noopener">ORCID</a>
+          <li><a href="https://scholar.google.com/citations?user=plh3lIEAAAAJ&hl=en&authuser=1" target="_blank" rel="noopener">Google Scholar</a></li>
+          <li><a href="https://www.scopus.com/authid/detail.uri?authorId=57221957374" target="_blank" rel="noopener">Scopus</a></li>
+          <li><a href="https://www.webofscience.com/wos/author/record/ADJ-8925-2022" target="_blank" rel="noopener">Web of Science</a></li>
+          <li><a href="https://orcid.org/0000-0001-6075-9519" target="_blank" rel="noopener">ORCID</a></li>
         </ul>
-        <p class="muted"><strong>Student Internships facilitated:</strong>14 at PCU, 13 at MIT-ADT — <strong>Total:</strong> 27</p>
+        <p class="muted"><strong>Student Internships facilitated:</strong> 14 at PCU, 13 at MIT-ADT — <strong>Total:</strong> 27</p>
       </div>
       <div>
         <img class="profile" src="assets/img/rahul-profile.jpg" alt="Dr. Rahul G. Sonkamble portrait" />
@@ -236,7 +234,7 @@ I am <strong>Dr. Rahul G. Sonkamble</strong>, Assistant Professor (CSE — AI&ML
     </div>
   </section>
 
-  <!-- NEW: INDUSTRY MoUs -->
+  <!-- INDUSTRY MoUs -->
   <section id="mou">
     <div class="container">
       <h2>Industry–Academia Collaborations (MoUs)</h2>
@@ -244,7 +242,7 @@ I am <strong>Dr. Rahul G. Sonkamble</strong>, Assistant Professor (CSE — AI&ML
       <div class="grid grid-2">
         <div class="card">
           <a href="https://www.klyntra.com/" target="_blank" rel="noopener"><img class="logo" src="assets/img/logo-klyntra.jpg" alt="Klyntra logo"></a>
-          <p><strong>Klyntra</strong> — Internships & carbon-footprint blockchain project. <strong>Outcome:</strong> 1 student internship + faculty group project. </p>
+          <p><strong>Klyntra</strong> — Internships & carbon-footprint blockchain project. <strong>Outcome:</strong> 1 student internship + faculty group project.</p>
         </div>
         <div class="card">
           <a href="https://tracxn.com/d/companies/dhealth-network/__DLmizyFJyc8DZwDBFeRodhU-K6U63NgUpVwItNkJM6Q" target="_blank" rel="noopener"><img class="logo" src="assets/img/logo-dhealth.png" alt="dHealth logo"></a>
@@ -294,7 +292,6 @@ I am <strong>Dr. Rahul G. Sonkamble</strong>, Assistant Professor (CSE — AI&ML
     <div class="container">
       <h2>Memberships</h2>
       <div class="pillbar"><span class="badge">IEEE</span><span class="badge">ACM</span><span class="badge">LMISTE</span></div>
-      <p class="muted"></p>
     </div>
   </section>
 
@@ -315,7 +312,7 @@ I am <strong>Dr. Rahul G. Sonkamble</strong>, Assistant Professor (CSE — AI&ML
           <h3>Address</h3>
           <p>Pimpri Chinchwad University, Pune — India</p>
           <p><strong>Email:</strong> <a href="mailto:rahul.sonkamble@pcu.edu.in">rahul.sonkamble@pcu.edu.in</a></p>
-          <p><strong>LinkedIn:</strong> <a href="https://www.linkedin.com/in/dr-rahul-sonkamble-029a7130/" target="_blank" rel="noopener"></a></p>
+          <p><strong>LinkedIn:</strong> <a href="https://www.linkedin.com/in/dr-rahul-sonkamble-029a7130/" target="_blank" rel="noopener">Profile</a></p>
         </div>
       </div>
     </div>
@@ -331,7 +328,7 @@ I am <strong>Dr. Rahul G. Sonkamble</strong>, Assistant Professor (CSE — AI&ML
     </div>
   </section>
 
-  <!-- OPTIONALS (Blog / Projects / Gallery / Testimonials / Calendar) — kept from previous version -->
+  <!-- OPTIONALS -->
   <section id="blog"><div class="container"><h2>Blog</h2>
     <div class="grid grid-3">
       <article class="card"><h3>Why ZKPs Matter for Public Health</h3><p class="muted">Selective disclosure enables analytics without revealing identities…</p><a href="#">Read more</a></article>
@@ -383,16 +380,48 @@ I am <strong>Dr. Rahul G. Sonkamble</strong>, Assistant Professor (CSE — AI&ML
   document.getElementById('y').textContent = new Date().getFullYear();
   const toggle=document.getElementById('toggleDark'),root=document.documentElement;
   if(localStorage.getItem('theme')==='dark') root.classList.add('dark');
-  toggle.addEventListener('click',()=>{root.classList.toggle('dark');localStorage.setItem('theme',root.classList.contains('dark')?'dark':'light')});
+  toggle?.addEventListener('click',()=>{root.classList.toggle('dark');localStorage.setItem('theme',root.classList.contains('dark')?'dark':'light')});
+
   const progress=document.getElementById('progress'),topBtn=document.getElementById('topBtn');
-  window.addEventListener('scroll',()=>{const s=document.documentElement.scrollTop||document.body.scrollTop;const h=document.documentElement.scrollHeight-document.documentElement.clientHeight;progress.style.width=(s/h)*100+'%';topBtn.style.display=s>400?'block':'none'}); topBtn.onclick=()=>window.scrollTo({top:0,behavior:'smooth'});
+  window.addEventListener('scroll',()=>{const s=document.documentElement.scrollTop||document.body.scrollTop;const h=document.documentElement.scrollHeight-document.documentElement.clientHeight;progress.style.width=(s/h)*100+'%';topBtn.style.display=s>400?'block':'none'}); 
+  topBtn.onclick=()=>window.scrollTo({top:0,behavior:'smooth'});
+
+  // Active nav highlight
   const links=[...document.querySelectorAll('.menu a')],sections=links.map(a=>document.querySelector(a.getAttribute('href')));
-  const obs=new IntersectionObserver(es=>{es.forEach(e=>{if(e.isIntersecting){links.forEach(l=>l.classList.remove('active'));const id='#'+e.target.id;const a=links.find(l=>l.getAttribute('href')===id);if(a)a.classList.add('active')}})},{threshold:.6});sections.forEach(s=>s&&obs.observe(s));
-  const counters=document.querySelectorAll('.num');const io=new IntersectionObserver((es,o)=>{es.forEach(e=>{if(e.isIntersecting){const el=e.target;const t=+el.dataset.count;let n=0;const step=Math.ceil(t/60);const T=setInterval(()=>{n+=step;if(n>=t){n=t;clearInterval(T)}el.textContent=n},16);o.unobserve(el)}})},{threshold:.9});counters.forEach(c=>io.observe(c));
+  const obs=new IntersectionObserver(es=>{es.forEach(e=>{if(e.isIntersecting){links.forEach(l=>l.classList.remove('active'));const id='#'+e.target.id;const a=links.find(l=>l.getAttribute('href')===id);if(a)a.classList.add('active')}})},{threshold:.6});
+  sections.forEach(s=>s&&obs.observe(s));
+
+  // Animated counters (supports data-suffix like "+")
+  const counters=document.querySelectorAll('.num');
+  const io=new IntersectionObserver((es,o)=>{
+    es.forEach(e=>{
+      if(!e.isIntersecting) return;
+      const el=e.target; const t=+el.dataset.count;
+      let n=0; const step=Math.max(1,Math.ceil(t/60));
+      const T=setInterval(()=>{ n+=step; if(n>=t){ n=t; clearInterval(T); } el.textContent=n; },16);
+      o.unobserve(el);
+    });
+  },{threshold:0.3});   // was 0.9; triggers sooner
+  counters.forEach(c=>io.observe(c));
+
+  // Publications filter
   const q=document.getElementById('pubFilter'),type=document.getElementById('pubType'),rows=[...document.querySelectorAll('#pubTable tbody tr')];
   function filt(){const text=q.value.toLowerCase();const t=type.value;rows.forEach(r=>{const okType=(t==='all')||(r.dataset.type===t);const okText=r.innerText.toLowerCase().includes(text);r.style.display=okType&&okText?'':'none'})}
   q.addEventListener('input',filt); type.addEventListener('change',filt);
-  const voiceBtn=document.getElementById('voiceBtn'); voiceBtn.addEventListener('click',()=>{const SR=window.SpeechRecognition||window.webkitSpeechRecognition;if(!SR){alert('Speech recognition not supported in this browser.');return}const r=new SR();r.lang='en-IN';r.start();r.onresult=e=>{const t=e.results[0][0].transcript.toLowerCase();const map={'home':'#home','about':'#about','research':'#research','publications':'#publications','courses':'#courses','skills':'#skills','events':'#events','certifications':'#certs','memberships':'#memberships','contact':'#contact','resume':'#resume','mou':'#mou'};for(const k in map){if(t.includes(k)){location.hash=map[k];return}};alert("Heard: '"+t+"'. Try 'go to publications', 'go to skills', etc.")};});
+
+  // Voice navigation
+  const voiceBtn=document.getElementById('voiceBtn'); 
+  voiceBtn?.addEventListener('click',()=>{
+    const SR=window.SpeechRecognition||window.webkitSpeechRecognition;
+    if(!SR){alert('Speech recognition not supported in this browser.');return}
+    const r=new SR(); r.lang='en-IN'; r.start();
+    r.onresult=e=>{
+      const t=e.results[0][0].transcript.toLowerCase();
+      const map={'home':'#home','about':'#about','research':'#research','publications':'#publications','courses':'#courses','skills':'#skills','events':'#events','certifications':'#certs','memberships':'#memberships','contact':'#contact','resume':'#resume','mou':'#mou'};
+      for(const k in map){ if(t.includes(k)){ location.hash=map[k]; return; } }
+      alert("Heard: '"+t+"'. Try 'go to publications', 'go to skills', etc.");
+    };
+  });
 </script>
 </body>
 </html>
