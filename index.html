@@ -576,7 +576,8 @@
         <a href="https://tracxn.com/d/companies/dhealth-network/__DLmizyFJyc8DZwDBFeRodhU-K6U63NgUpVwItNkJM6Q" target="_blank" rel="noopener">
           <img class="logo" src="assets/img/logo-dhealth.png" alt="dHealth logo">
         </a>
-        <p><strong>dHealth Network</strong> — India’s first dHealth blockchain supernode at MIT-ADT; 
+        <p><strong>dHealth Network</strong> — India’s first dHealth blockchain supernode at MIT-ADT
+          <br>
         <strong>Outcome:</strong> 4 student internships.</p>
       </div>
       <div class="card">
@@ -584,6 +585,7 @@
           <img class="logo" src="assets/img/logo-hypermine.jpg" alt="Hypermine logo">
         </a>
         <p><strong>Hypermine</strong> — Internships, consultancy, combined IPRs. 
+          <br>
         <strong>Outcome:</strong> 8 students selected for internship.</p>
       </div>
       <div class="card">
@@ -634,18 +636,182 @@
 
 
   <!-- EVENTS -->
-  <section id="events">
-    <div class="container">
-      <h2>Events & FDPs</h2>
-      <div class="card">
-        <ul>
-          <li><strong>IEEE Symposium (Aug 2025)</strong> — Organizer & Speaker Coordination</li>
-          <li><strong>FDP: Empowering Research with AI Tools</strong> — Convener</li>
-          <li><strong>Blockchain & ZKP Workshop (June 2025)</strong> — Lead Trainer</li>
-        </ul>
+ <section id="events">
+  <div class="container">
+    <h2>Events & FDPs</h2>
+
+    <!-- Slider Container -->
+    <div class="slider">
+      <div class="slides">
+
+        <!-- 1. Inauguration of ACM Student Chapter -->
+        <div class="slide active">
+          <img src="assets/events/acm_inauguration.jpg" alt="ACM Inauguration">
+          <div class="caption">
+            <strong>Inauguration of PCU ACM Student Chapter (8th Jan 2025)</strong><br>
+            The ACM Student Chapter at Pimpri Chinchwad University was officially inaugurated on 8th January 2025 
+            with eminent dignitaries and a formal oath-taking session. 
+          </div>
+        </div>
+
+        <!-- 2. Guest Lecture AI in Business -->
+        <div class="slide">
+          <img src="assets/events/ai_finance.jpg" alt="AI in Business and Finance">
+          <div class="caption">
+            <strong>Guest Lecture – “AI in Business and Finance” (27th Feb 2025)</strong><br>
+            A session by Ms. Revati Gandhi on AI in finance, covering fraud detection, robo-advisors, and ML in stock forecasting.
+          </div>
+        </div>
+
+        <!-- 3. Guest Lecture Digital Transformation -->
+        <div class="slide">
+          <img src="assets/events/digital_transformation.jpg" alt="Digital Transformation">
+          <div class="caption">
+            <strong>Guest Lecture – “Digital Transformation: The Business Impact of Modern Technology” (4th Feb 2025)</strong><br>
+            A lecture by Mr. Ankur Sharma on AI, IoT, and cloud transforming businesses.
+          </div>
+        </div>
+
+        <!-- 4. Online Workshop Research Paper -->
+        <div class="slide">
+          <img src="assets/events/research_paper.jpg" alt="Research Paper Workshop">
+          <div class="caption">
+            <strong>Online Workshop – “How to Write a Research Paper” (25th Jan 2025)</strong><br>
+            Conducted by Prof. Rahul Sonkamble & Dr. Swati Shirke, focused on research problem identification, structure, and ethics.
+          </div>
+        </div>
+
+        <!-- 5. Software Testing Program -->
+        <div class="slide">
+          <img src="assets/events/software_testing.jpg" alt="Software Testing Training">
+          <div class="caption">
+            <strong>Two-Week Training Program – “Software Testing” (17th–28th Mar 2025)</strong><br>
+            Hands-on training on manual + automation testing with Selenium, JIRA, Jenkins.
+          </div>
+        </div>
+
+        <!-- 6. Zscaler Cloud Security Workshop -->
+        <div class="slide">
+          <img src="assets/events/zscaler.jpg" alt="Zscaler Workshop">
+          <div class="caption">
+            <strong>3-Day Workshop – “Zscaler Cloud Security” (6th–8th Mar 2025)</strong><br>
+            Workshop on Zero Trust Architecture, SAML authentication, SSL inspection, and URL filtering.
+          </div>
+        </div>
+
+        <!-- 7. FDP on AI Tools -->
+        <div class="slide">
+          <img src="assets/events/fdp_ai.jpg" alt="FDP on AI Tools">
+          <div class="caption">
+            <strong>FDP on AI Tools (1st–3rd July 2025)</strong><br>
+            Faculty Development Program highlighting cutting-edge AI research and applications.
+          </div>
+        </div>
+
       </div>
+
+      <!-- Navigation -->
+      <a class="prev">&#10094;</a>
+      <a class="next">&#10095;</a>
     </div>
-  </section>
+  </div>
+</section>
+
+<style>
+  /* Slider Styles */
+  .slider {
+    position: relative;
+    max-width: 800px;
+    margin: 30px auto;
+    overflow: hidden;
+    border-radius: 8px;
+    box-shadow: 0 4px 12px rgba(0,0,0,0.2);
+  }
+
+  .slides {
+    display: flex;
+    transition: transform 0.8s ease-in-out;
+  }
+
+  .slide {
+    min-width: 100%;
+    display: none;
+    text-align: center;
+  }
+
+  .slide.active {
+    display: block;
+  }
+
+  .slide img {
+    width: 100%;
+    height: 400px;
+    object-fit: cover;
+    border-bottom: 3px solid #0073e6;
+  }
+
+  .caption {
+    background: #fff;
+    padding: 15px;
+    font-size: 15px;
+    color: #333;
+  }
+
+  /* Navigation arrows */
+  .prev, .next {
+    cursor: pointer;
+    position: absolute;
+    top: 45%;
+    padding: 12px;
+    color: white;
+    font-weight: bold;
+    font-size: 24px;
+    transition: 0.3s;
+    border-radius: 50%;
+    background: rgba(0,0,0,0.4);
+    user-select: none;
+  }
+
+  .prev { left: 10px; }
+  .next { right: 10px; }
+
+  .prev:hover, .next:hover {
+    background: rgba(0,0,0,0.7);
+  }
+</style>
+
+<script>
+  let slideIndex = 0;
+  const slides = document.querySelectorAll('.slide');
+  const prev = document.querySelector('.prev');
+  const next = document.querySelector('.next');
+
+  function showSlide(n) {
+    slides.forEach((slide, i) => {
+      slide.style.display = (i === n) ? 'block' : 'none';
+    });
+  }
+
+  function nextSlide() {
+    slideIndex = (slideIndex + 1) % slides.length;
+    showSlide(slideIndex);
+  }
+
+  function prevSlide() {
+    slideIndex = (slideIndex - 1 + slides.length) % slides.length;
+    showSlide(slideIndex);
+  }
+
+  prev.addEventListener('click', prevSlide);
+  next.addEventListener('click', nextSlide);
+
+  // Auto-slide every 5s
+  setInterval(nextSlide, 5000);
+
+  // Initialize
+  showSlide(slideIndex);
+</script>
+
 
   <!-- CERTIFICATIONS -->
   <section id="certs">
