@@ -404,51 +404,66 @@
 
   <!-- Pagination script for this section -->
   <script>
-    (function(){
-      const pageSize = 10;
-      let currentPage = 1;
+  (function(){
+    const pageSize = 10;
+    let currentPage = 1;
 
-      const pubTable = document.getElementById('pubTable');
-      const pubRows  = [...pubTable.querySelectorAll('tbody tr')];
-      const pubFilter= document.getElementById('pubFilter');
-      const pubType  = document.getElementById('pubType');
-      const pubPrev  = document.getElementById('pubPrev');
-      const pubNext  = document.getElementById('pubNext');
-      const pubInfo  = document.getElementById('pubInfo');
+    const pubTable = document.getElementById('pubTable');
+    const pubRows  = [...pubTable.querySelectorAll('tbody tr')];
+    const pubFilter= document.getElementById('pubFilter');
+    const pubType  = document.getElementById('pubType');
+    const pubPrev  = document.getElementById('pubPrev');
+    const pubNext  = document.getElementById('pubNext');
+    const pubInfo  = document.getElementById('pubInfo');
+    const pubPager = document.getElementById('pubPager');
 
-      function getFiltered(){
-        const text = (pubFilter.value||'').toLowerCase();
-        const typ  = (pubType.value||'all').toLowerCase();
-        return pubRows.filter(r=>{
-          const okType = (typ==='all') || (r.dataset.type.toLowerCase()===typ);
-          const okText = r.innerText.toLowerCase().includes(text);
-          return okType && okText;
-        });
+    function getFiltered(){
+      const text = (pubFilter.value||'').toLowerCase();
+      const typ  = (pubType.value||'all').toLowerCase();
+      return pubRows.filter(r=>{
+        const okType = (typ==='all') || (r.dataset.type.toLowerCase()===typ);
+        const okText = r.innerText.toLowerCase().includes(text);
+        return okType && okText;
+      });
+    }
+
+    function showPage(p=1){
+      const rows  = getFiltered();
+      const total = rows.length;
+      const pages = Math.max(1, Math.ceil(total / pageSize));
+
+      // Clamp page number and hide all rows
+      currentPage = Math.min(Math.max(1, p), pages);
+      pubRows.forEach(r => r.style.display = 'none');
+
+      // Show only current slice (always at most pageSize)
+      const start = (currentPage - 1) * pageSize;
+      rows.slice(start, start + pageSize).forEach(r => r.style.display = '');
+
+      // Pager visibility & state
+      const singlePage = total <= pageSize;
+      pubPager.style.display = singlePage ? 'none' : 'flex';
+      pubPrev.disabled = currentPage === 1;
+      pubNext.disabled = currentPage === pages;
+
+      // Info text
+      pubInfo.textContent = `Page ${currentPage} of ${pages} • ${total} item${total!==1?'s':''}`;
+      if (total === 0) {
+        pubInfo.textContent = 'No matching items';
       }
+    }
 
-      function showPage(p=1){
-        const rows = getFiltered();
-        const total = rows.length;
-        const pages = Math.max(1, Math.ceil(total/pageSize));
-        currentPage = Math.min(Math.max(1,p), pages);
+    // Events
+    pubFilter.addEventListener('input', () => showPage(1));
+    pubType.addEventListener('change', () => showPage(1));
+    pubPrev.addEventListener('click', () => showPage(currentPage - 1));
+    pubNext.addEventListener('click', () => showPage(currentPage + 1));
 
-        pubRows.forEach(r=>r.style.display='none');
-        const start = (currentPage-1)*pageSize;
-        rows.slice(start, start+pageSize).forEach(r=>r.style.display='');
+    // Initial render
+    showPage(1);
+  })();
+</script>
 
-        pubInfo.textContent = `Page ${currentPage} of ${pages} • ${total} item${total!==1?'s':''}`;
-        pubPrev.disabled = currentPage===1;
-        pubNext.disabled = currentPage===pages;
-      }
-
-      pubFilter.addEventListener('input', ()=>showPage(1));
-      pubType.addEventListener('change', ()=>showPage(1));
-      pubPrev.addEventListener('click', ()=>showPage(currentPage-1));
-      pubNext.addEventListener('click', ()=>showPage(currentPage+1));
-
-      showPage(1);
-    })();
-  </script>
 </section>
 
 
