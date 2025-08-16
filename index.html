@@ -599,28 +599,38 @@
 
 <!-- Inline styling -->
 <style>
-  #mou .logo {
-    width: 200px;      /* Make logos bigger */
-    height: auto;
-    display: block;
-    margin: 0 auto 15px;
-    transition: transform 0.3s ease, box-shadow 0.3s ease; /* smooth hover effect */
-  }
-
-  #mou .logo:hover {
-    transform: scale(1.1); /* Slightly enlarge on hover */
-    box-shadow: 0 4px 12px rgba(0, 0, 0, 0.3); /* Add shadow */
+  #mou .grid.grid-2 {
+    display: grid;
+    grid-template-columns: repeat(2, 1fr);
+    gap: 30px;
   }
 
   #mou .card {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;   /* Center content vertically */
     text-align: center;
     padding: 20px;
+    min-height: 300px;         /* Ensure equal card height */
+    border: 1px solid #eee;    /* Optional: subtle box border */
+    border-radius: 8px;
+    background: #fff;
   }
 
-  #mou .grid.grid-2 {
-    gap: 30px;
+  #mou .logo {
+    width: 200px;
+    height: auto;
+    margin-bottom: 15px;
+    transition: transform 0.3s ease, box-shadow 0.3s ease;
+  }
+
+  #mou .logo:hover {
+    transform: scale(1.1);
+    box-shadow: 0 4px 12px rgba(0, 0, 0, 0.3);
   }
 </style>
+
 
 
   <!-- EVENTS -->
