@@ -4,135 +4,59 @@
   <meta charset="utf-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1" />
   <title>Dr. Rahul G. Sonkamble — Official Website</title>
-  <meta name="description" content="Official personal website of Dr. Rahul G. Sonkamble — research, publications, teaching, memberships, events, and contact." />
-  <meta name="robots" content="index,follow" />
+  <meta name="description" content="Official personal website of Dr. Rahul G. Sonkamble — research, publications, teaching, industry MoUs, events, and contact." />
   <meta property="og:title" content="Dr. Rahul G. Sonkamble — Official Website" />
-  <meta property="og:description" content="Research • Publications • Courses • Events • Contact" />
   <meta property="og:type" content="website" />
   <meta property="og:url" content="https://rahulgsonkamble.github.io/rahul-website/" />
 
-  <!-- PCU-style design (no external CSS needed) -->
   <style>
-    :root{
-      --pcu-primary:#0b4a7f;  /* deep blue */
-      --pcu-accent:#c62828;   /* crimson */
-      --ink:#0f172a;          /* dark text */
-      --muted:#5b6b83;
-      --bg:#ffffff;
-      --card:#f6f7fb;
-      --ring:#e5e7eb;
-      --shadow:0 10px 30px rgba(2,8,23,.08);
-    }
-    :root.dark{
-      --bg:#0b1220;
-      --ink:#e6e9f2;
-      --muted:#a4b1c6;
-      --card:#111a2e;
-      --ring:#1f2a44;
-      --shadow:0 10px 30px rgba(0,0,0,.4);
-    }
-    *{box-sizing:border-box}
-    html{scroll-behavior:smooth}
-    body{
-      margin:0; font:16px/1.6 system-ui,-apple-system,Segoe UI,Roboto,"Helvetica Neue",Arial;
-      color:var(--ink); background:var(--bg);
-    }
-    a{color:var(--pcu-primary); text-decoration:none}
-    a:hover{text-decoration:underline}
-    .container{max-width:1100px; margin:auto; padding:0 20px}
-    /* Header / Nav */
-    .skip{position:absolute; left:-9999px}
-    .skip:focus{left:8px; top:8px; background:#fff; padding:8px 12px; z-index:999; border-radius:6px}
-    header{
-      position:sticky; top:0; z-index:50; background:var(--bg);
-      border-bottom:1px solid var(--ring); box-shadow:var(--shadow);
-    }
-    nav{display:flex; align-items:center; justify-content:space-between; gap:14px; padding:10px 0}
-    .brand{display:flex; align-items:center; gap:10px; font-weight:700; color:var(--ink); letter-spacing:.2px}
+    :root{--pcu-primary:#0b4a7f;--pcu-accent:#c62828;--ink:#0f172a;--muted:#5b6b83;--bg:#fff;--card:#f6f7fb;--ring:#e5e7eb;--shadow:0 10px 30px rgba(2,8,23,.08)}
+    :root.dark{--bg:#0b1220;--ink:#e6e9f2;--muted:#a4b1c6;--card:#111a2e;--ring:#1f2a44;--shadow:0 10px 30px rgba(0,0,0,.4)}
+    *{box-sizing:border-box} html{scroll-behavior:smooth}
+    body{margin:0;font:16px/1.6 system-ui,-apple-system,Segoe UI,Roboto,"Helvetica Neue",Arial;color:var(--ink);background:var(--bg)}
+    a{color:var(--pcu-primary);text-decoration:none} a:hover{text-decoration:underline}
+    .container{max-width:1100px;margin:auto;padding:0 20px}
+    .skip{position:absolute;left:-9999px}.skip:focus{left:8px;top:8px;background:#fff;padding:8px 12px;z-index:999;border-radius:6px}
+    header{position:sticky;top:0;z-index:50;background:var(--bg);border-bottom:1px solid var(--ring);box-shadow:var(--shadow)}
+    nav{display:flex;align-items:center;justify-content:space-between;gap:14px;padding:10px 0}
+    .brand{display:flex;align-items:center;gap:10px;font-weight:700;color:var(--ink)}
     .brand .dot{width:10px;height:10px;border-radius:50%;background:var(--pcu-accent)}
-    .menu{display:flex; flex-wrap:wrap; gap:14px}
-    .menu a{padding:6px 10px; border-radius:8px}
-    .menu a.active, .menu a:hover{background:var(--card)}
-    .actions{display:flex; gap:10px}
-    .btn{
-      border:1px solid var(--ring); background:var(--bg); color:var(--ink);
-      padding:6px 10px; border-radius:8px; cursor:pointer
-    }
-    .btn.primary{background:var(--pcu-primary); color:#fff; border-color:transparent}
-    .btn.accent{background:var(--pcu-accent); color:#fff; border-color:transparent}
-    /* Sections */
-    section{padding:64px 0; border-bottom:1px solid var(--ring)}
-    h1,h2{line-height:1.2; margin:0 0 14px}
-    h1{font-size:clamp(32px,4vw,44px)}
-    h2{font-size:clamp(26px,3vw,34px)}
+    .menu{display:flex;flex-wrap:wrap;gap:14px}.menu a{padding:6px 10px;border-radius:8px}.menu a.active,.menu a:hover{background:var(--card)}
+    .actions{display:flex;gap:10px}
+    .btn{border:1px solid var(--ring);background:var(--bg);color:var(--ink);padding:6px 10px;border-radius:8px;cursor:pointer}
+    .btn.primary{background:var(--pcu-primary);color:#fff;border-color:transparent}
+    section{padding:64px 0;border-bottom:1px solid var(--ring)}
+    h1,h2{line-height:1.2;margin:0 0 14px} h1{font-size:clamp(32px,4vw,44px)} h2{font-size:clamp(26px,3vw,34px)}
     .lead{color:var(--muted)}
-    .grid{display:grid; gap:18px}
-    .grid-2{grid-template-columns:repeat(2,minmax(0,1fr))}
-    .grid-3{grid-template-columns:repeat(3,minmax(0,1fr))}
+    .grid{display:grid;gap:18px}.grid-2{grid-template-columns:repeat(2,1fr)}.grid-3{grid-template-columns:repeat(3,1fr)}
     @media (max-width:900px){.grid-2,.grid-3{grid-template-columns:1fr}}
-    .card{
-      background:var(--card); border:1px solid var(--ring); border-radius:14px;
-      padding:18px; box-shadow:var(--shadow)
-    }
-    .tag{display:inline-block; font-size:12px; padding:2px 8px; border-radius:999px; background:var(--ring)}
-    .muted{color:var(--muted)}
-    .pillbar{display:flex; gap:8px; flex-wrap:wrap}
-    .hero{
-      padding:80px 0 64px; position:relative; overflow:hidden
-    }
-    .hero .halo{
-      position:absolute; inset:-20%; background:radial-gradient(600px 300px at 70% -10%, rgba(12,74,110,.15), transparent);
-      pointer-events:none; z-index:-1;
-    }
-    .stats{display:flex; gap:18px; flex-wrap:wrap}
-    .stat{
-      min-width:160px; text-align:center; padding:14px 10px;
-      border:1px dashed var(--ring); border-radius:12px; background:var(--bg)
-    }
-    .stat .num{font-size:32px; font-weight:800; color:var(--pcu-primary)}
-    .kicker{letter-spacing:.2em; text-transform:uppercase; font-weight:700; color:var(--pcu-accent); font-size:12px}
-    /* Table */
-    table{width:100%; border-collapse:collapse}
-    th,td{padding:10px; border-bottom:1px solid var(--ring); vertical-align:top}
-    th{text-align:left}
-    /* Gallery */
-    .gallery{display:grid; gap:10px; grid-template-columns:repeat(3,1fr)}
-    .gallery img{width:100%; border-radius:10px; border:1px solid var(--ring)}
+    .card{background:var(--card);border:1px solid var(--ring);border-radius:14px;padding:18px;box-shadow:var(--shadow)}
+    .tag{display:inline-block;font-size:12px;padding:2px 8px;border-radius:999px;background:var(--ring)}
+    .muted{color:var(--muted)} .pillbar{display:flex;gap:8px;flex-wrap:wrap}
+    .hero{padding:80px 0 64px;position:relative;overflow:hidden}
+    .hero .halo{position:absolute;inset:-20%;background:radial-gradient(600px 300px at 70% -10%,rgba(12,74,110,.15),transparent);pointer-events:none;z-index:-1}
+    .stats{display:flex;gap:18px;flex-wrap:wrap}
+    .stat{min-width:160px;text-align:center;padding:14px 10px;border:1px dashed var(--ring);border-radius:12px;background:var(--bg)}
+    .stat .num{font-size:32px;font-weight:800;color:var(--pcu-primary)}
+    table{width:100%;border-collapse:collapse} th,td{padding:10px;border-bottom:1px solid var(--ring);vertical-align:top} th{text-align:left}
+    .gallery{display:grid;gap:10px;grid-template-columns:repeat(3,1fr)} .gallery img{width:100%;border-radius:10px;border:1px solid var(--ring)}
     @media(max-width:700px){.gallery{grid-template-columns:1fr 1fr}}
-    /* Footer */
-    footer{background:var(--bg); padding:28px 0}
-    .tiny{font-size:13px}
-    /* Back to top */
-    #topBtn{
-      position:fixed; right:18px; bottom:18px; display:none; z-index:60;
-    }
-    /* Progress bar */
-    #progress{
-      position:fixed; left:0; top:0; height:3px; width:0; background:linear-gradient(90deg,var(--pcu-accent),var(--pcu-primary));
-      z-index:100;
-    }
-    /* Forms */
-    input,textarea,select{width:100%; padding:10px 12px; border-radius:10px; border:1px solid var(--ring); background:var(--bg); color:var(--ink)}
-    label{font-weight:600}
-    .row{display:grid; grid-template-columns:1fr 1fr; gap:14px}
-    @media (max-width:800px){.row{grid-template-columns:1fr}}
-    /* Badges */
-    .badge{padding:6px 10px; border-radius:10px; background:var(--ring); font-size:12px; font-weight:600}
+    footer{padding:28px 0}.tiny{font-size:13px}
+    #topBtn{position:fixed;right:18px;bottom:18px;display:none;z-index:60}
+    #progress{position:fixed;left:0;top:0;height:3px;width:0;background:linear-gradient(90deg,var(--pcu-accent),var(--pcu-primary));z-index:100}
+    input,textarea,select{width:100%;padding:10px 12px;border-radius:10px;border:1px solid var(--ring);background:var(--bg);color:var(--ink)}
+    label{font-weight:600}.row{display:grid;grid-template-columns:1fr 1fr;gap:14px}@media (max-width:800px){.row{grid-template-columns:1fr}}
+    .badge{padding:6px 10px;border-radius:10px;background:var(--ring);font-size:12px;font-weight:600}
+    .logo{height:44px;object-fit:contain;background:#fff;border-radius:10px;padding:6px;border:1px solid var(--ring)}
+    .profile{width:100%;max-width:360px;border-radius:14px;border:1px solid var(--ring)}
   </style>
 
-  <!-- Structured data -->
   <script type="application/ld+json">
-  {
-    "@context":"https://schema.org",
-    "@type":"Person",
-    "name":"Dr. Rahul G. Sonkamble",
-    "affiliation":{"@type":"CollegeOrUniversity","name":"Pimpri Chinchwad University"},
-    "jobTitle":"Assistant Professor, CSE (AI&ML)",
-    "url":"https://rahulgsonkamble.github.io/rahul-website/",
-    "sameAs":[
-      "https://scholar.google.com/","https://www.scopus.com/","https://orcid.org/"
-    ]
-  }
+  {"@context":"https://schema.org","@type":"Person","name":"Dr. Rahul G. Sonkamble",
+   "affiliation":{"@type":"CollegeOrUniversity","name":"Pimpri Chinchwad University"},
+   "jobTitle":"Assistant Professor, CSE (AI&ML)","email":"rahul.sonkamble@pcu.edu.in",
+   "url":"https://rahulgsonkamble.github.io/rahul-website/",
+   "sameAs":["https://scholar.google.com/citations?user=B9A6c0wAAAAJ&hl=en","https://orcid.org/0000-0001-6075-9519"]}
   </script>
 </head>
 <body>
@@ -142,149 +66,127 @@
 <header>
   <div class="container">
     <nav aria-label="Primary">
-      <div class="brand">
-        <span class="dot" aria-hidden="true"></span>
-        <span>Dr. Rahul G. Sonkamble</span>
-      </div>
+      <div class="brand"><span class="dot" aria-hidden="true"></span><span>Dr. Rahul G. Sonkamble</span></div>
       <div class="menu" id="menu">
-        <a href="#home" class="active">Home</a>
-        <a href="#about">About</a>
-        <a href="#research">Research</a>
-        <a href="#publications">Publications</a>
-        <a href="#courses">Courses</a>
-        <a href="#skills">Skills</a>
-        <a href="#events">Events & FDPs</a>
-        <a href="#certs">Certifications</a>
-        <a href="#memberships">Memberships</a>
-        <a href="#contact">Contact</a>
-        <a href="#resume">Resume</a>
+        <a href="#home" class="active">Home</a><a href="#about">About</a><a href="#research">Research</a>
+        <a href="#publications">Publications</a><a href="#courses">Courses</a><a href="#skills">Skills</a>
+        <a href="#mou">Industry MoUs</a><a href="#events">Events & FDPs</a><a href="#certs">Certifications</a>
+        <a href="#memberships">Memberships</a><a href="#contact">Contact</a><a href="#resume">Resume</a>
       </div>
       <div class="actions">
         <button class="btn" id="toggleDark" aria-label="Toggle dark mode">🌗</button>
-        <button class="btn" id="voiceBtn" title="Voice navigation (say: 'Go to Publications')">🎙️</button>
+        <button class="btn" id="voiceBtn" title="Voice navigation">🎙️</button>
       </div>
     </nav>
   </div>
 </header>
 
 <main id="main">
-  <!-- 1. HOME -->
+  <!-- HOME -->
   <section id="home" class="hero">
     <div class="halo"></div>
     <div class="container">
-      <p class="kicker">Welcome</p>
+      <p class="kicker" style="letter-spacing:.2em;text-transform:uppercase;color:#c62828;font-weight:700;font-size:12px">Welcome</p>
       <h1>Assistant Professor — CSE (AI&ML), Pimpri Chinchwad University</h1>
-      <p class="lead">Privacy‑preserving Blockchain • Zero‑Knowledge Proofs • Interoperable EHR • AI for Security</p>
+      <p class="lead">Privacy-preserving Blockchain • Zero-Knowledge Proofs • Interoperable EHR • AI for Security</p>
       <div class="stats" aria-label="My life in numbers">
         <div class="stat"><div class="num" data-count="11">0</div><div class="muted">Years Teaching</div></div>
+        <div class="stat"><div class="num" data-count="27">0</div><div class="muted">Student Internships Facilitated</div></div>
         <div class="stat"><div class="num" data-count="25">0</div><div class="muted">Publications</div></div>
-        <div class="stat"><div class="num" data-count="8">0</div><div class="muted">Funded/Industry Projects</div></div>
         <div class="stat"><div class="num" data-count="1200">0</div><div class="muted">Students Mentored</div></div>
       </div>
       <div class="pillbar" style="margin-top:14px">
-        <span class="badge">ZKP</span><span class="badge">Ethereum</span>
-        <span class="badge">Hyperledger Fabric</span><span class="badge">Federated Learning</span>
-        <span class="badge">Cybersecurity</span>
+        <span class="badge">ZKP</span><span class="badge">Ethereum</span><span class="badge">Hyperledger Fabric</span>
+        <span class="badge">Federated Learning</span><span class="badge">Cybersecurity</span>
       </div>
     </div>
   </section>
 
-  <!-- 2. ABOUT -->
+  <!-- ABOUT -->
   <section id="about">
     <div class="container grid grid-2">
       <div>
         <h2>About Me</h2>
-        <p>I am <strong>Dr. Rahul G. Sonkamble</strong>, Assistant Professor (CSE — AI&ML) at Pimpri Chinchwad University, Pune. My work focuses on blockchain interoperability, Zero‑Knowledge Proofs, and privacy‑preserving AI systems. I actively mentor students, coordinate academic programs, and collaborate with industry for applied research.</p>
+        <p>I am <strong>Dr. Rahul G. Sonkamble</strong>, Assistant Professor (CSE — AI&ML) at Pimpri Chinchwad University, Pune. My work focuses on blockchain interoperability, Zero-Knowledge Proofs, and privacy-preserving AI systems. I actively build academia–industry bridges and guide students toward internships and research outcomes.</p>
         <ul>
-          <li><strong>Ph.D.</strong> in Computer Science & Engineering (Privacy‑Preserving Interoperable Blockchain for EHR)</li>
-          <li><strong>Roles:</strong> Academic Coordinator, IEEE/ACM activities, FDPs & workshops lead</li>
+          <li><strong>Official email:</strong> <a href="mailto:rahul.sonkamble@pcu.edu.in">rahul.sonkamble@pcu.edu.in</a></li>
+          <li><strong>Google Scholar:</strong> <a href="https://scholar.google.com/citations?user=B9A6c0wAAAAJ&hl=en" target="_blank" rel="noopener">Scholar Profile</a></li>
+          <li><strong>ORCID:</strong> <a href="https://orcid.org/0000-0001-6075-9519" target="_blank" rel="noopener">0000-0001-6075-9519</a></li>
         </ul>
-        <div class="pillbar">
-          <span class="tag">Google Scholar</span>
-          <span class="tag">Scopus</span>
-          <span class="tag">ORCID</span>
-        </div>
+        <p class="muted">Internships facilitated: <strong>14 at PCU</strong>, <strong>13 at MIT-ADT</strong> — total <strong>27</strong>. :contentReference[oaicite:0]{index=0}</p>
       </div>
-      <div class="card">
-        <h3>At a glance</h3>
-        <ul>
-          <li>Location: Pune, India</li>
-          <li>Email: <a href="mailto:replace-with-your-email@example.com">replace-with-your-email@example.com</a></li>
-          <li>Scholar: <a href="#" target="_blank" rel="noopener">Add link</a></li>
-          <li>Scopus: <a href="#" target="_blank" rel="noopener">Add link</a></li>
-        </ul>
-        <p class="muted">Tip: replace placeholders with your real links.</p>
+      <div>
+        <img class="profile" src="assets/img/rahul-profile.jpg" alt="Dr. Rahul G. Sonkamble portrait" />
       </div>
     </div>
   </section>
 
-  <!-- 3. RESEARCH -->
+  <!-- RESEARCH -->
   <section id="research">
     <div class="container">
       <h2>Research Profile</h2>
-      <p class="lead">Highlighted projects, with links to papers and artifacts.</p>
+      <p class="lead">Highlighted projects with links to papers and artifacts.</p>
       <div class="grid grid-3">
         <div class="card">
-          <h3>ZKP‑Based Cross‑Chain EHR Transfer</h3>
-          <p class="muted">Bidirectional data exchange between Ethereum & Hyperledger Fabric with Poseidon‑based proofs.</p>
+          <h3>ZKP-Based Cross-Chain EHR Transfer</h3>
+          <p class="muted">Bidirectional exchange between Ethereum & Hyperledger Fabric with Poseidon-based proofs.</p>
           <a class="btn" href="#" target="_blank" rel="noopener">Project / Code</a>
         </div>
         <div class="card">
-          <h3>Blockchain‑Enabled Audit for CRM Leads</h3>
-          <p class="muted">Tamper detection over hashed lead logs; comparative study on Fabric vs Ethereum.</p>
+          <h3>Blockchain-Enabled CRM Lead Audit</h3>
+          <p class="muted">Tamper detection on hashed lead logs; Fabric vs Ethereum metrics.</p>
           <a class="btn" href="#" target="_blank" rel="noopener">Paper</a>
         </div>
         <div class="card">
-          <h3>Secure Federated Learning for MRI Classification</h3>
-          <p class="muted">Privacy‑preserving FL with VGG16 on BRATS dataset; reproducible evaluation.</p>
+          <h3>Secure Federated Learning for MRI</h3>
+          <p class="muted">Privacy-preserving FL with VGG16 on BRATS; reproducible evaluation.</p>
           <a class="btn" href="#" target="_blank" rel="noopener">Dataset / Results</a>
         </div>
       </div>
     </div>
   </section>
 
-  <!-- 4. PUBLICATIONS -->
+  <!-- PUBLICATIONS -->
   <section id="publications">
     <div class="container">
       <h2>Publications</h2>
       <div class="row">
-        <div>
-          <label for="pubFilter">Search / Filter</label>
-          <input id="pubFilter" placeholder="Filter by title, venue, year…">
-        </div>
-        <div>
-          <label for="pubType">Type</label>
-          <select id="pubType">
-            <option value="all">All</option>
-            <option value="journal">Journal</option>
-            <option value="conference">Conference</option>
-            <option value="book">Book Chapter</option>
-          </select>
-        </div>
+        <div><label for="pubFilter">Search / Filter<input id="pubFilter" placeholder="Filter by title, venue, year…"></label></div>
+        <div><label for="pubType">Type<select id="pubType"><option value="all">All</option><option value="journal">Journal</option><option value="conference">Conference</option></select></label></div>
       </div>
       <div class="card" style="margin-top:14px">
-        <table id="pubTable" aria-describedby="pubFilter">
-          <thead><tr><th>Title</th><th>Venue</th><th>Year</th><th>Type</th></tr></thead>
-          <tbody>
-            <tr data-type="journal">
-              <td><a href="#" target="_blank">SONBlock: Blockchain‑based EHR Management</a></td>
-              <td>JETIR</td><td>2024</td><td>journal</td>
-            </tr>
-            <tr data-type="conference">
-              <td><a href="#" target="_blank">ZKP Verifier for Cross‑Chain Identity</a></td>
-              <td>IEEE Intl. Conf.</td><td>2025</td><td>conference</td>
-            </tr>
-            <tr data-type="journal">
-              <td><a href="#" target="_blank">Secure Federated Deep Learning for MRI</a></td>
-              <td>Scientific Reports</td><td>2025</td><td>journal</td>
-            </tr>
-          </tbody>
-        </table>
+        <table id="pubTable"><thead><tr><th>Title</th><th>Venue</th><th>Year</th><th>Type</th></tr></thead><tbody>
+          <tr data-type="journal">
+            <td><a href="https://doi.org/10.1038/s41598-025-12068-6" target="_blank" rel="noopener">A blockchain secured metaverse framework for scalable and immersive telemedicine</a></td>
+            <td>Scientific Reports</td><td>2025</td><td>journal</td>
+          </tr>
+          <tr data-type="journal">
+            <td><a href="https://dx.doi.org/10.14569/IJACSA.2025.0160233" target="_blank" rel="noopener">BlockMed: AI Driven HL7-FHIR Translation with Blockchain-Based Security</a></td>
+            <td>IJACSA</td><td>2025</td><td>journal</td>
+          </tr>
+          <tr data-type="journal">
+            <td><a href="https://doi.org/10.1016/j.mex.2024.103002" target="_blank" rel="noopener">A secure interoperable method for EHR exchange on cross-platform blockchain</a></td>
+            <td>MethodsX</td><td>2024</td><td>journal</td>
+          </tr>
+          <tr data-type="journal">
+            <td><a href="#" target="_blank" rel="noopener">Blockchain-Based Framework for Interoperable EHR</a></td>
+            <td>MDPI Sustainability</td><td>2023</td><td>journal</td>
+          </tr>
+          <tr data-type="journal">
+            <td><a href="#" target="_blank" rel="noopener">Secure Data Transmission of EHR using Blockchain</a></td>
+            <td>MDPI Electronics</td><td>2023</td><td>journal</td>
+          </tr>
+          <tr data-type="journal">
+            <td><a href="#" target="_blank" rel="noopener">Survey of Interoperability in EHR Management — MyBlockEHR</a></td>
+            <td>IEEE Access</td><td>2021</td><td>journal</td>
+          </tr>
+        </tbody></table>
       </div>
+      <p class="muted">More on <a href="https://scholar.google.com/citations?user=B9A6c0wAAAAJ&hl=en" target="_blank" rel="noopener">Google Scholar</a>. Sources: resume. :contentReference[oaicite:1]{index=1}</p>
     </div>
   </section>
 
-  <!-- 5. COURSES -->
+  <!-- COURSES -->
   <section id="courses">
     <div class="container">
       <h2>Courses Taught</h2>
@@ -308,28 +210,46 @@
     </div>
   </section>
 
-  <!-- 6. SKILLS -->
+  <!-- SKILLS -->
   <section id="skills">
     <div class="container">
       <h2>Skills & Tools</h2>
       <div class="grid grid-3">
-        <div class="card">
-          <h3>Blockchain</h3>
-          <p class="muted">Ethereum, Solidity, Hardhat, Hyperledger Fabric, Chaincode (Go), IPFS</p>
-        </div>
-        <div class="card">
-          <h3>Cryptography / ZKP</h3>
-          <p class="muted">Circom, SnarkJS, Halo2 (basics), Poseidon, Merkle proofs</p>
-        </div>
-        <div class="card">
-          <h3>AI/ML</h3>
-          <p class="muted">Python, PyTorch, scikit‑learn, VGG16, Federated Learning</p>
-        </div>
+        <div class="card"><h3>Blockchain</h3><p class="muted">Ethereum, Solidity, Hardhat, Hyperledger Fabric, Chaincode (Go), IPFS</p></div>
+        <div class="card"><h3>Cryptography / ZKP</h3><p class="muted">Circom, SnarkJS, Poseidon, Merkle proofs</p></div>
+        <div class="card"><h3>AI/ML</h3><p class="muted">Python, PyTorch, scikit-learn, VGG16, Federated Learning</p></div>
       </div>
     </div>
   </section>
 
-  <!-- 7. EVENTS -->
+  <!-- NEW: INDUSTRY MoUs -->
+  <section id="mou">
+    <div class="container">
+      <h2>Industry–Academia Collaborations (MoUs)</h2>
+      <p class="lead">Active engagements to enable internships, supernodes, consultancy, and joint IP. :contentReference[oaicite:2]{index=2}</p>
+      <div class="grid grid-2">
+        <div class="card">
+          <a href="https://www.klyntra.com/" target="_blank" rel="noopener"><img class="logo" src="assets/img/logo-klyntra.png" alt="Klyntra logo"></a>
+          <p><strong>Klyntra</strong> — Internships & carbon-footprint blockchain project. <strong>Outcome:</strong> 1 student internship + faculty group project. </p>
+        </div>
+        <div class="card">
+          <a href="https://tracxn.com/d/companies/dhealth-network/__DLmizyFJyc8DZwDBFeRodhU-K6U63NgUpVwItNkJM6Q" target="_blank" rel="noopener"><img class="logo" src="assets/img/logo-dhealth.png" alt="dHealth logo"></a>
+          <p><strong>dHealth Network</strong> — India’s first dHealth blockchain supernode at MIT-ADT; <strong>Outcome:</strong> 4 student internships.</p>
+        </div>
+        <div class="card">
+          <a href="https://hypermine.co/" target="_blank" rel="noopener"><img class="logo" src="assets/img/logo-hypermine.png" alt="Hypermine logo"></a>
+          <p><strong>Hypermine</strong> — Internships, consultancy, combined IPRs. <strong>Outcome:</strong> 8 students selected for internship.</p>
+        </div>
+        <div class="card">
+          <a href="https://www.accelchain.xyz/" target="_blank" rel="noopener"><img class="logo" src="assets/img/logo-accelchain.png" alt="Accelchain logo"></a>
+          <p><strong>Accelchain</strong> — MoU draft finalized; engagement for student projects and research.</p>
+        </div>
+      </div>
+      <p class="muted">Total internships facilitated across institutes: PCU (14) + MIT-ADT (13) = <strong>27</strong>. :contentReference[oaicite:3]{index=3}</p>
+    </div>
+  </section>
+
+  <!-- EVENTS -->
   <section id="events">
     <div class="container">
       <h2>Events & FDPs</h2>
@@ -343,7 +263,7 @@
     </div>
   </section>
 
-  <!-- 8. CERTIFICATIONS -->
+  <!-- CERTIFICATIONS -->
   <section id="certs">
     <div class="container">
       <h2>Certifications</h2>
@@ -355,255 +275,110 @@
     </div>
   </section>
 
-  <!-- 9. MEMBERSHIPS -->
+  <!-- MEMBERSHIPS -->
   <section id="memberships">
     <div class="container">
       <h2>Memberships</h2>
-      <div class="pillbar">
-        <span class="badge">IEEE</span>
-        <span class="badge">ACM</span>
-        <span class="badge">LMISTE</span>
-      </div>
-      <p class="muted">Add membership IDs / links where applicable.</p>
+      <div class="pillbar"><span class="badge">IEEE</span><span class="badge">ACM</span><span class="badge">LMISTE</span></div>
+      <p class="muted">Add membership IDs / links where applicable. :contentReference[oaicite:4]{index=4}</p>
     </div>
   </section>
 
-  <!-- 10. CONTACT -->
+  <!-- CONTACT -->
   <section id="contact">
     <div class="container">
       <h2>Contact</h2>
       <div class="grid grid-2">
-        <form class="card" action="mailto:replace-with-your-email@example.com" method="get">
+        <form class="card" action="mailto:rahul.sonkamble@pcu.edu.in" method="get">
           <div class="row">
             <div><label>Name<input name="subject" placeholder="Your name" required></label></div>
             <div><label>Email<input name="cc" type="email" placeholder="you@example.com" required></label></div>
           </div>
           <label>Message<textarea name="body" rows="5" placeholder="Write your message…" required></textarea></label>
-          <p class="muted">Tip: replace the mailto address with your real email for instant submissions.</p>
           <button class="btn primary" type="submit">Send Email</button>
         </form>
         <div class="card">
           <h3>Address</h3>
           <p>Pimpri Chinchwad University, Pune — India</p>
-          <p><strong>Email:</strong> <a href="mailto:replace-with-your-email@example.com">replace-with-your-email@example.com</a></p>
+          <p><strong>Email:</strong> <a href="mailto:rahul.sonkamble@pcu.edu.in">rahul.sonkamble@pcu.edu.in</a></p>
           <p><strong>LinkedIn:</strong> <a href="#" target="_blank" rel="noopener">Add link</a></p>
         </div>
       </div>
     </div>
   </section>
 
-  <!-- 11. RESUME -->
+  <!-- RESUME -->
   <section id="resume">
     <div class="container">
       <h2>Resume / CV</h2>
       <p class="lead">Download the latest CV for full academic and professional details.</p>
-      <a class="btn accent" href="./resume.pdf" download>⬇️ Download CV (PDF)</a>
-      <p class="muted">Upload your file as <code>resume.pdf</code> in the repository root.</p>
+      <a class="btn" href="./resume.pdf" download>⬇️ Download CV (PDF)</a>
+      <p class="muted">Make sure your file name is <code>resume.pdf</code> in the repository root.</p>
     </div>
   </section>
 
-  <!-- OPTIONALS -->
+  <!-- OPTIONALS (Blog / Projects / Gallery / Testimonials / Calendar) — kept from previous version -->
+  <section id="blog"><div class="container"><h2>Blog</h2>
+    <div class="grid grid-3">
+      <article class="card"><h3>Why ZKPs Matter for Public Health</h3><p class="muted">Selective disclosure enables analytics without revealing identities…</p><a href="#">Read more</a></article>
+      <article class="card"><h3>Fabric vs Ethereum for Auditable Logs</h3><p class="muted">Latency, throughput, and trust models compared…</p><a href="#">Read more</a></article>
+      <article class="card"><h3>Teaching ANN: Lab Ideas & Viva</h3><p class="muted">Simple experiments that build intuition…</p><a href="#">Read more</a></article>
+    </div></div></section>
 
-  <!-- Blog -->
-  <section id="blog">
-    <div class="container">
-      <h2>Blog</h2>
-      <div class="grid grid-3">
-        <article class="card">
-          <h3>Why ZKPs Matter for Public Health</h3>
-          <p class="muted">Selective disclosure enables analytics without revealing identities…</p>
-          <a href="#">Read more</a>
-        </article>
-        <article class="card">
-          <h3>Fabric vs Ethereum for Auditable Logs</h3>
-          <p class="muted">Latency, throughput, and trust models compared for enterprise audit trails…</p>
-          <a href="#">Read more</a>
-        </article>
-        <article class="card">
-          <h3>Teaching ANN: Lab Ideas & Vivá</h3>
-          <p class="muted">Simple experiments that build intuition for students…</p>
-          <a href="#">Read more</a>
-        </article>
-      </div>
-    </div>
-  </section>
+  <section id="projects"><div class="container"><h2>Student Projects</h2>
+    <div class="grid grid-3">
+      <div class="card"><h3>ZK-KYC Wallet</h3><p class="muted">Anonymous credentials to prove compliance without identity disclosure.</p><a href="#">Project page</a></div>
+      <div class="card"><h3>Brain Tumor MRI Classifier</h3><p class="muted">CNN pipeline on BRATS dataset with explainability widgets.</p><a href="#">Poster</a></div>
+      <div class="card"><h3>Supply-Chain Provenance</h3><p class="muted">Smart contracts for authenticity tracking and recalls.</p><a href="#">Demo</a></div>
+    </div></div></section>
 
-  <!-- Student Projects -->
-  <section id="projects">
-    <div class="container">
-      <h2>Student Projects</h2>
-      <div class="grid grid-3">
-        <div class="card">
-          <h3>ZK‑KYC Wallet</h3>
-          <p class="muted">Anonymous credentials to prove compliance without identity disclosure.</p>
-          <a href="#">Project page</a>
-        </div>
-        <div class="card">
-          <h3>Brain Tumor MRI Classifier</h3>
-          <p class="muted">CNN pipeline on BRATS dataset with explainability widgets.</p>
-          <a href="#">Poster</a>
-        </div>
-        <div class="card">
-          <h3>Supply‑Chain Provenance</h3>
-          <p class="muted">Smart contracts for authenticity tracking and recalls.</p>
-          <a href="#">Demo</a>
-        </div>
-      </div>
-    </div>
-  </section>
+  <section id="gallery"><div class="container"><h2>Gallery</h2>
+    <div class="gallery">
+      <img src="https://picsum.photos/seed/pcu1/800/600" alt="Event photo 1">
+      <img src="https://picsum.photos/seed/pcu2/800/600" alt="Event photo 2">
+      <img src="https://picsum.photos/seed/pcu3/800/600" alt="Event photo 3">
+      <img src="https://picsum.photos/seed/pcu4/800/600" alt="Event photo 4">
+      <img src="https://picsum.photos/seed/pcu5/800/600" alt="Event photo 5">
+      <img src="https://picsum.photos/seed/pcu6/800/600" alt="Event photo 6">
+    </div></div></section>
 
-  <!-- Gallery -->
-  <section id="gallery">
-    <div class="container">
-      <h2>Gallery</h2>
-      <div class="gallery">
-        <img src="https://picsum.photos/seed/pcu1/800/600" alt="Event photo 1">
-        <img src="https://picsum.photos/seed/pcu2/800/600" alt="Event photo 2">
-        <img src="https://picsum.photos/seed/pcu3/800/600" alt="Event photo 3">
-        <img src="https://picsum.photos/seed/pcu4/800/600" alt="Event photo 4">
-        <img src="https://picsum.photos/seed/pcu5/800/600" alt="Event photo 5">
-        <img src="https://picsum.photos/seed/pcu6/800/600" alt="Event photo 6">
-      </div>
-    </div>
-  </section>
+  <section id="testimonials"><div class="container"><h2>Testimonials</h2>
+    <div class="grid grid-3">
+      <div class="card"><p>“Dr. Rahul’s workshop transformed our understanding of blockchain.”</p><p class="muted">— Industry Partner</p></div>
+      <div class="card"><p>“An inspiring mentor who makes complex topics simple.”</p><p class="muted">— Student</p></div>
+      <div class="card"><p>“Sets the standards high for research and teaching.”</p><p class="muted">— Colleague</p></div>
+    </div></div></section>
 
-  <!-- Testimonials -->
-  <section id="testimonials">
-    <div class="container">
-      <h2>Testimonials</h2>
-      <div class="grid grid-3">
-        <div class="card"><p>“Dr. Rahul’s workshop transformed our understanding of blockchain.”</p><p class="muted">— Industry Partner</p></div>
-        <div class="card"><p>“An inspiring mentor who makes complex topics simple.”</p><p class="muted">— Student</p></div>
-        <div class="card"><p>“Sets the standards high for research and teaching.”</p><p class="muted">— Colleague</p></div>
-      </div>
-    </div>
-  </section>
-
-  <!-- Academic Calendar -->
-  <section id="academic-calendar">
-    <div class="container">
-      <h2>Academic Calendar</h2>
-      <div class="card">
-        <p class="muted">Embed your Google Calendar (Public) by replacing the <code>src</code> URL below.</p>
-        <iframe title="Academic Calendar" style="width:100%; height:500px; border:0" src="https://calendar.google.com/calendar/embed?src=en.indian%23holiday%40group.v.calendar.google.com"></iframe>
-      </div>
-    </div>
-  </section>
-
+  <section id="academic-calendar"><div class="container"><h2>Academic Calendar</h2>
+    <div class="card"><p class="muted">Replace the <code>src</code> below with your public Google Calendar link.</p>
+      <iframe title="Academic Calendar" style="width:100%;height:500px;border:0" src="https://calendar.google.com/calendar/embed?src=en.indian%23holiday%40group.v.calendar.google.com"></iframe>
+    </div></div></section>
 </main>
 
-<!-- 12. FOOTER with PCU branding -->
-<footer id="footer">
-  <div class="container">
-    <div class="grid grid-2">
-      <div>
-        <strong>Department of CSE (AI&ML)</strong><br/>
-        Pimpri Chinchwad University, Pune
-        <p class="tiny muted">© <span id="y"></span> Dr. Rahul G. Sonkamble • All Rights Reserved</p>
-      </div>
-      <div>
-        <div class="pillbar" style="justify-content:flex-end">
-          <span class="tag">PCU Branding</span>
-          <span class="tag">Ethics • Excellence • Innovation</span>
-        </div>
-      </div>
-    </div>
-  </div>
+<footer id="footer"><div class="container">
+  <div class="grid grid-2">
+    <div><strong>Department of CSE (AI&ML)</strong><br/>Pimpri Chinchwad University, Pune
+      <p class="tiny muted">© <span id="y"></span> Dr. Rahul G. Sonkamble • All Rights Reserved</p></div>
+    <div><div class="pillbar" style="justify-content:flex-end"><span class="tag">PCU Branding</span><span class="tag">Ethics • Excellence • Innovation</span></div></div>
+  </div></div>
 </footer>
 
 <button id="topBtn" class="btn">↑ Top</button>
 
-<!-- Scripts (in-page, no external JS) -->
 <script>
-  // Year
   document.getElementById('y').textContent = new Date().getFullYear();
-
-  // Dark mode
-  const toggle = document.getElementById('toggleDark');
-  const root = document.documentElement;
+  const toggle=document.getElementById('toggleDark'),root=document.documentElement;
   if(localStorage.getItem('theme')==='dark') root.classList.add('dark');
-  toggle.addEventListener('click', ()=>{
-    root.classList.toggle('dark');
-    localStorage.setItem('theme', root.classList.contains('dark') ? 'dark' : 'light');
-  });
-
-  // Scroll progress bar + back-to-top
-  const progress = document.getElementById('progress');
-  const topBtn = document.getElementById('topBtn');
-  window.addEventListener('scroll', ()=>{
-    const s = document.documentElement.scrollTop || document.body.scrollTop;
-    const h = document.documentElement.scrollHeight - document.documentElement.clientHeight;
-    progress.style.width = (s/h)*100 + '%';
-    topBtn.style.display = s>400 ? 'block':'none';
-  });
-  topBtn.onclick = ()=>window.scrollTo({top:0, behavior:'smooth'});
-
-  // Active menu highlight
-  const links = [...document.querySelectorAll('.menu a')];
-  const sections = links.map(a => document.querySelector(a.getAttribute('href')));
-  const obs = new IntersectionObserver((entries)=>{
-    entries.forEach(e=>{
-      if(e.isIntersecting){
-        links.forEach(l=>l.classList.remove('active'));
-        const id = '#'+e.target.id;
-        const active = links.find(l=>l.getAttribute('href')===id);
-        if(active) active.classList.add('active');
-      }
-    });
-  }, {threshold:0.6});
-  sections.forEach(sec=>sec && obs.observe(sec));
-
-  // Animated counters
-  const counters = document.querySelectorAll('.num');
-  const io = new IntersectionObserver((entries,obs2)=>{
-    entries.forEach(entry=>{
-      if(entry.isIntersecting){
-        const el = entry.target; const target = +el.dataset.count;
-        let n=0; const step = Math.ceil(target/60);
-        const t=setInterval(()=>{ n+=step; if(n>=target){n=target; clearInterval(t);} el.textContent=n; },16);
-        obs2.unobserve(el);
-      }
-    });
-  },{threshold:.9});
-  counters.forEach(c=>io.observe(c));
-
-  // Publications filter
-  const q = document.getElementById('pubFilter');
-  const type = document.getElementById('pubType');
-  const rows = [...document.querySelectorAll('#pubTable tbody tr')];
-  function filt(){
-    const text = q.value.toLowerCase();
-    const t = type.value;
-    rows.forEach(r=>{
-      const okType = (t==='all') || (r.dataset.type===t);
-      const okText = r.innerText.toLowerCase().includes(text);
-      r.style.display = okType && okText ? '' : 'none';
-    });
-  }
-  q.addEventListener('input',filt);
-  type.addEventListener('change',filt);
-
-  // Voice navigation (say: go to publications / go to skills / go to contact)
-  const voiceBtn = document.getElementById('voiceBtn');
-  voiceBtn.addEventListener('click', ()=>{
-    const SR = window.SpeechRecognition || window.webkitSpeechRecognition;
-    if(!SR){ alert('Speech recognition not supported in this browser.'); return; }
-    const r = new SR(); r.lang='en-IN'; r.interimResults=false; r.maxAlternatives=1;
-    r.start();
-    r.onresult = e=>{
-      const text = e.results[0][0].transcript.toLowerCase();
-      const map = {
-        'home':'#home','about':'#about','research':'#research','publications':'#publications',
-        'courses':'#courses','skills':'#skills','events':'#events','certifications':'#certs',
-        'memberships':'#memberships','contact':'#contact','resume':'#resume'
-      };
-      for(const key in map){
-        if(text.includes(key)){ location.hash = map[key]; return; }
-      }
-      alert("Heard: '"+text+"'. Try 'go to publications', 'go to skills', etc.");
-    };
-  });
+  toggle.addEventListener('click',()=>{root.classList.toggle('dark');localStorage.setItem('theme',root.classList.contains('dark')?'dark':'light')});
+  const progress=document.getElementById('progress'),topBtn=document.getElementById('topBtn');
+  window.addEventListener('scroll',()=>{const s=document.documentElement.scrollTop||document.body.scrollTop;const h=document.documentElement.scrollHeight-document.documentElement.clientHeight;progress.style.width=(s/h)*100+'%';topBtn.style.display=s>400?'block':'none'}); topBtn.onclick=()=>window.scrollTo({top:0,behavior:'smooth'});
+  const links=[...document.querySelectorAll('.menu a')],sections=links.map(a=>document.querySelector(a.getAttribute('href')));
+  const obs=new IntersectionObserver(es=>{es.forEach(e=>{if(e.isIntersecting){links.forEach(l=>l.classList.remove('active'));const id='#'+e.target.id;const a=links.find(l=>l.getAttribute('href')===id);if(a)a.classList.add('active')}})},{threshold:.6});sections.forEach(s=>s&&obs.observe(s));
+  const counters=document.querySelectorAll('.num');const io=new IntersectionObserver((es,o)=>{es.forEach(e=>{if(e.isIntersecting){const el=e.target;const t=+el.dataset.count;let n=0;const step=Math.ceil(t/60);const T=setInterval(()=>{n+=step;if(n>=t){n=t;clearInterval(T)}el.textContent=n},16);o.unobserve(el)}})},{threshold:.9});counters.forEach(c=>io.observe(c));
+  const q=document.getElementById('pubFilter'),type=document.getElementById('pubType'),rows=[...document.querySelectorAll('#pubTable tbody tr')];
+  function filt(){const text=q.value.toLowerCase();const t=type.value;rows.forEach(r=>{const okType=(t==='all')||(r.dataset.type===t);const okText=r.innerText.toLowerCase().includes(text);r.style.display=okType&&okText?'':'none'})}
+  q.addEventListener('input',filt); type.addEventListener('change',filt);
+  const voiceBtn=document.getElementById('voiceBtn'); voiceBtn.addEventListener('click',()=>{const SR=window.SpeechRecognition||window.webkitSpeechRecognition;if(!SR){alert('Speech recognition not supported in this browser.');return}const r=new SR();r.lang='en-IN';r.start();r.onresult=e=>{const t=e.results[0][0].transcript.toLowerCase();const map={'home':'#home','about':'#about','research':'#research','publications':'#publications','courses':'#courses','skills':'#skills','events':'#events','certifications':'#certs','memberships':'#memberships','contact':'#contact','resume':'#resume','mou':'#mou'};for(const k in map){if(t.includes(k)){location.hash=map[k];return}};alert("Heard: '"+t+"'. Try 'go to publications', 'go to skills', etc.")};});
 </script>
 </body>
 </html>
-
