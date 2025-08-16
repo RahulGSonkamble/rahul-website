@@ -162,15 +162,38 @@
   </section>
 
   <!-- PUBLICATIONS -->
-  <section id="publications">
-    <div class="container">
-      <h2>Publications</h2>
-      <div class="row">
-        <div><label for="pubFilter">Search / Filter<input id="pubFilter" placeholder="Filter by title, venue, year…"></label></div>
-        <div><label for="pubType">Type<select id="pubType"><option value="all">All</option><option value="journal">SCIE / SCOPUS Indexed Journal</option><option value="conference">Conference</option><option value="UGC">UGC Indexed</option><option value="Book">Book</option><option value="BookChapter">Book Chapter</option><option value="Copyright">Copyright</option><option value="Patent">Patent</option></select></label></div>
+<section id="publications">
+  <div class="container">
+    <h2>Publications</h2>
+
+    <!-- Controls -->
+    <div class="row" style="align-items:end">
+      <div>
+        <label for="pubFilter">Search / Filter</label>
+        <input id="pubFilter" placeholder="Filter by title, venue, year…">
       </div>
-      <div class="card" style="margin-top:14px">
-        <table id="pubTable"><thead><tr><th>Title</th><th>Journal/Conference Name</th><th>Year</th><th>Type</th></tr></thead><tbody>
+      <div>
+        <label for="pubType">Type</label>
+        <select id="pubType">
+          <option value="all">All</option>
+          <option value="journal">SCIE / SCOPUS Indexed Journal</option>
+          <option value="conference">Conference</option>
+          <option value="UGC">UGC Indexed</option>
+          <option value="Book">Book</option>
+          <option value="BookChapter">Book Chapter</option>
+          <option value="Copyright">Copyright</option>
+          <option value="Patent">Patent</option>
+        </select>
+      </div>
+    </div>
+
+    <div class="card" style="margin-top:14px">
+      <table id="pubTable">
+        <thead>
+          <tr><th>Title</th><th>Journal/Conference Name</th><th>Year</th><th>Type</th></tr>
+        </thead>
+        <tbody>
+          <!-- JOURNALS -->
           <tr data-type="journal">
             <td><a href="https://doi.org/10.1038/s41598-025-12068-6" target="_blank" rel="noopener">A blockchain secured metaverse framework for scalable and immersive telemedicine</a></td>
             <td>Scientific Reports</td><td>2025</td><td>journal</td>
@@ -183,16 +206,16 @@
             <td><a href="https://doi.org/10.1016/j.mex.2024.103002" target="_blank" rel="noopener">A secure interoperable method for EHR exchange on cross-platform blockchain</a></td>
             <td>MethodsX</td><td>2024</td><td>journal</td>
           </tr>
-           <tr data-type="journal">
-            <td><a href="https://doi.org/10.3390/technologies12090155" target="_blank" rel="noopener">PARKTag: An AI–Blockchain Integrated Solution for an Efficient, Trusted, and Scalable Parking Management System</a></td>
+          <tr data-type="journal">
+            <td><a href="https://doi.org/10.3390/technologies12090155" target="_blank" rel="noopener">PARKTag: An AI–Blockchain Integrated Solution for Parking Management</a></td>
             <td>Technologies</td><td>2024</td><td>journal</td>
           </tr>
           <tr data-type="journal">
             <td><a href="https://doi.org/10.17762/ijritcc.v11i5.6526" target="_blank" rel="noopener">Web3 Chain Authentication and Authorization Security Standard (CAA)</a></td>
-            <td>International Journal on Recent and Innovation Trends in Computing and Communication</td><td>2023</td><td>journal</td>
+            <td>IJRITCC</td><td>2023</td><td>journal</td>
           </tr>
           <tr data-type="journal">
-            <td><a href="https://doi.org/10.3390/su15086337" target="_blank" rel="noopener">Blockchain-Based Framework for Interoperable Electronic Health Records for an Improved Healthcare System</a></td>
+            <td><a href="https://doi.org/10.3390/su15086337" target="_blank" rel="noopener">Blockchain-Based Framework for Interoperable Electronic Health Records</a></td>
             <td>Sustainability</td><td>2023</td><td>journal</td>
           </tr>
           <tr data-type="journal">
@@ -200,159 +223,234 @@
             <td>Electronics</td><td>2023</td><td>journal</td>
           </tr>
           <tr data-type="journal">
-            <td><a href="https://doi.org/10.1109/ACCESS.2021.3129284" target="_blank" rel="noopener">Survey of Interoperability in Electronic Health Records Management and Proposed Blockchain Based Framework: MyBlockEHR</a></td>
+            <td><a href="https://doi.org/10.1109/ACCESS.2021.3129284" target="_blank" rel="noopener">Survey of Interoperability in EHR Management — MyBlockEHR</a></td>
             <td>IEEE Access</td><td>2021</td><td>journal</td>
           </tr>
+
+          <!-- CONFERENCES -->
           <tr data-type="conference">
-            <td><a href="https://doi.org/10.1109/ICBDS58040.2023.10346419" target="_blank" rel="noopener">Towards Adoption of Green Blockchain with Emphasis on Blockchain Type, Consensus Protocols, Data Sharding and Smart Contracts</a></td>
-            <td>IEEE International Conference on Blockchain and Distributed Systems Security (ICBDS)</td><td>2023</td><td>Conference</td>
+            <td><a href="https://doi.org/10.1109/ICBDS58040.2023.10346419" target="_blank" rel="noopener">Towards Adoption of Green Blockchain…</a></td>
+            <td>IEEE ICBDS</td><td>2023</td><td>Conference</td>
           </tr>
           <tr data-type="conference">
             <td><a href="https://dx.doi.org/10.2139/ssrn.3852951" target="_blank" rel="noopener">Privacy Preserved E-Voting System Using Blockchain</a></td>
-            <td>International Conference on Smart Data Intelligence (ICSMDI 2021)</td><td>2021</td><td>Conference</td>
+            <td>ICSMDI 2021</td><td>2021</td><td>Conference</td>
           </tr>
           <tr data-type="conference">
-            <td><a href="https://link.springer.com/chapter/10.1007/978-3-030-69921-5_3" target="_blank" rel="noopener">Bandwidth Improvement of Multilayer Microstrip Patch Antenna by Using Capacitive Feed Technique for Broadband Applications</a></td>
+            <td><a href="https://link.springer.com/chapter/10.1007/978-3-030-69921-5_3" target="_blank" rel="noopener">Bandwidth Improvement of Multilayer Microstrip Patch Antenna…</a></td>
             <td>Techno-Societal 2020</td><td>2020</td><td>Conference</td>
           </tr>
           <tr data-type="conference">
-            <td><a href="https://link.springer.com/chapter/10.1007/978-3-319-53556-2_42" target="_blank" rel="noopener">Comparative Study to Improve Antenna Parameters of Multilayer Micro strip Patch Antenna</a></td>
+            <td><a href="https://link.springer.com/chapter/10.1007/978-3-319-53556-2_42" target="_blank" rel="noopener">Comparative Study to Improve Antenna Parameters…</a></td>
             <td>Techno-Societal 2016</td><td>2016</td><td>Conference</td>
           </tr>
           <tr data-type="conference">
-            <td><a href="https://iopscience.iop.org/article/10.1088/1757-899X/1022/1/012067" target="_blank" rel="noopener">Secured Communication in Vehicular Adhoc Networks (VANETs) using Blockchain</a></td>
-            <td>IOP Conference series: Materials Science & Engineering</td><td>2021</td><td>Conference</td>
+            <td><a href="https://iopscience.iop.org/article/10.1088/1757-899X/1022/1/012067" target="_blank" rel="noopener">Secured Communication in VANETs using Blockchain</a></td>
+            <td>IOP Conf. Series: MSE</td><td>2021</td><td>Conference</td>
           </tr>
           <tr data-type="conference">
-            <td>Autonomic VM Migration in Cloud Computing based on Energy Consumption</td>
-            <td>International Conference on New Trends in Engineering & Technology (ICNTET) 2018</td><td>2018</td><td>Conference</td>
+            <td>Autonomic VM Migration in Cloud Computing…</td>
+            <td>ICNTET 2018</td><td>2018</td><td>Conference</td>
           </tr>
           <tr data-type="conference">
             <td>Wi-Fi Gesture Recognition System</td>
-            <td>Techno societal 2016</td><td>2016</td><td>Conference</td>
+            <td>Techno-Societal 2016</td><td>2016</td><td>Conference</td>
           </tr>
           <tr data-type="conference">
             <td>MQAF: Modern Question Answering Forum</td>
-            <td>Techno societal 2016</td><td>2016</td><td>Conference</td>
+            <td>Techno-Societal 2016</td><td>2016</td><td>Conference</td>
           </tr>
           <tr data-type="conference">
             <td>E-Doc Healthcare System</td>
-            <td>Techno societal 2016</td><td>2016</td><td>Conference</td>
+            <td>Techno-Societal 2016</td><td>2016</td><td>Conference</td>
           </tr>
           <tr data-type="conference">
-            <td>Real Time Human Iris Aliveness Detection and Biometric template Protection</td>
-            <td>Techno societal 2016</td><td>2016</td><td>Conference</td>
+            <td>Real-Time Human Iris Aliveness Detection…</td>
+            <td>Techno-Societal 2016</td><td>2016</td><td>Conference</td>
           </tr>
-           <tr data-type="conference">
+          <tr data-type="conference">
             <td>Information Centric Networks: Future Internet</td>
-            <td>ICST (International Conference on Science and Technology)-2K14</td><td>2014</td><td>Conference</td>
+            <td>ICST-2K14</td><td>2014</td><td>Conference</td>
           </tr>
           <tr data-type="conference">
-            <td>Enhancing Data Security and Privacy through Blockchain and Machine Learning Integration</td>
+            <td>Enhancing Data Security & Privacy via Blockchain + ML</td>
             <td>IGT National Conference</td><td>2023</td><td>Conference</td>
           </tr>
           <tr data-type="conference">
             <td>Grid Computing</td>
             <td>IGT National Conference</td><td>2023</td><td>Conference</td>
           </tr>
+
+          <!-- UGC JOURNALS -->
           <tr data-type="UGC">
-            <td><a href="https://www.ijnrd.org/papers/IJNRD2305377.pdf" target="_blank" rel="noopener">ChatGenie – An autonomous chatbot using AI with AI Detection and Image Generation</a></td>
-            <td>International Journal of Novel Research and Development</td><td>2023</td><td>journal</td>
+            <td><a href="https://www.ijnrd.org/papers/IJNRD2305377.pdf" target="_blank" rel="noopener">ChatGenie – autonomous chatbot with AI detection & image generation</a></td>
+            <td>IJNRD</td><td>2023</td><td>journal</td>
           </tr>
           <tr data-type="UGC">
-            <td><a href="https://doi.org/10.22214/IJRASET.2022.44110" target="_blank" rel="noopener">DeepFake Detection: A survey of countering malicious Deep-Fakes</a></td>
-            <td>International Journal for Research in Applied Science & Engineering Technology (IJRASET)</td><td>2022</td><td>journal</td>
+            <td><a href="https://doi.org/10.22214/IJRASET.2022.44110" target="_blank" rel="noopener">DeepFake Detection: a survey</a></td>
+            <td>IJRASET</td><td>2022</td><td>journal</td>
           </tr>
           <tr data-type="UGC">
-            <td><a href="https://doi.org/10.22214/IJRASET.2022.41909" target="_blank" rel="noopener">Covid-19 Face Mask Recognition using Live Camera and Face Mask Detection Using TensorFlow and Keras</a></td>
-            <td>International Journal for Research in Applied Science & Engineering Technology (IJRASET)</td><td>2022</td><td>journal</td>
+            <td><a href="https://doi.org/10.22214/IJRASET.2022.41909" target="_blank" rel="noopener">Covid-19 Face Mask Recognition…</a></td>
+            <td>IJRASET</td><td>2022</td><td>journal</td>
           </tr>
           <tr data-type="UGC">
             <td><a href="https://www.irjet.net/archives/V9/i7/IRJET-V9I7225.pdf" target="_blank" rel="noopener">Presentation Summarizer: A Full-Fledged NLP Service</a></td>
-            <td>International Research Journal of Engineering and Technology (IRJET)</td><td>2022</td><td>journal</td>
+            <td>IRJET</td><td>2022</td><td>journal</td>
           </tr>
           <tr data-type="UGC">
             <td><a href="https://www.irjet.net/archives/V7/i3/IRJET-V7I3485.pdf" target="_blank" rel="noopener">Automated Monitoring and Controlling of Greenhouse</a></td>
-            <td>International Research Journal of Engineering and Technology (IRJET)</td><td>2020</td><td>journal</td>
+            <td>IRJET</td><td>2020</td><td>journal</td>
           </tr>
           <tr data-type="UGC">
             <td><a href="https://www.ijresm.com/Vol.2_2019/Vol2_Iss1_January19/IJRESM_V2_I1_9.pdf" target="_blank" rel="noopener">Sports Result Prediction System</a></td>
-            <td>International Journal of Research in Engineering, Science and Management</td><td>2019</td><td>journal</td>
+            <td>IJRESM</td><td>2019</td><td>journal</td>
           </tr>
           <tr data-type="UGC">
-            <td><a href="https://www.researchgate.net/profile/Rahul-Sonkamble/publication/348590635_Fake_Review_Detection_System_Using_Machine_Learning/links/6006726ca6fdccdcb8644e0b/Fake-Review-Detection-System-Using-Machine-Learning.pdf?origin=publication_detail" target="_blank" rel="noopener">Fake Review Detection System Using Machine Learning</a></td>
-            <td>International Journal of Research in Engineering, Science and Management</td><td>2018</td><td>journal</td>
+            <td><a href="https://www.researchgate.net/profile/Rahul-Sonkamble/publication/348590635_Fake_Review_Detection_System_Using_Machine_Learning/links/6006726ca6fdccdcb8644e0b/Fake-Review-Detection-System-Using-Machine-Learning.pdf?origin=publication_detail" target="_blank" rel="noopener">Fake Review Detection System Using ML</a></td>
+            <td>IJRESM</td><td>2018</td><td>journal</td>
           </tr>
           <tr data-type="UGC">
             <td><a href="https://www.ijamtes.org/gallery/32.%20aprl%20-%20ijamtes%20-%20369.pdf" target="_blank" rel="noopener">Meta Map-Reduce using Boosting Algorithm</a></td>
-            <td>International Journal of Innovations & Advancement in Computer Science</td><td>2018</td><td>journal</td>
+            <td>IJAMTES</td><td>2018</td><td>journal</td>
           </tr>
           <tr data-type="UGC">
             <td>SQUIRTLE: A Perceptive Embedded Unit</td>
-            <td>International Journal of Innovations & Advancement in Computer Science</td><td>2018</td><td>journal</td>
+            <td>IJAMTES</td><td>2018</td><td>journal</td>
           </tr>
           <tr data-type="UGC">
-            <td><a href="https://inpressco.com/content-centric-network-solution-over-ip-network-issues/" target="_blank" rel="noopener">Content Centric Network: Solution over IP Network Issues</a></td>
-            <td>International Journal of Current Engineering and Technology</td><td>2014</td><td>journal</td>
+            <td><a href="https://inpressco.com/content-centric-network-solution-over-ip-network-issues/" target="_blank" rel="noopener">Content Centric Network: Solution over IP</a></td>
+            <td>IJCRET</td><td>2014</td><td>journal</td>
           </tr>
+
+          <!-- COPYRIGHTS -->
           <tr data-type="Copyright">
             <td>Structure of Deep Belief Neural Network</td>
-            <td>Indian Copyright Diary Number: 1155/2023-CO/L</td><td>2023</td><td>Copyright</td>
+            <td>Indian Copyright Diary No. 1155/2023-CO/L</td><td>2023</td><td>Copyright</td>
           </tr>
           <tr data-type="Copyright">
-            <td><a href="https://www.ic.gc.ca/app/opic-cipo/cpyrghts/dtls.do?fileNum=1195054&type=1&lang=eng" target="_blank" rel="noopener">Cryptographic Secure Algorithm with User Validating Preservation Scheme in IoT-Healthcare</a></td>
-            <td>Canadian Copyright Registration Number: 1195054</td><td>2022</td><td>Copyright</td>
+            <td><a href="https://www.ic.gc.ca/app/opic-cipo/cpyrghts/dtls.do?fileNum=1195054&type=1&lang=eng" target="_blank" rel="noopener">Crypto Secure Algorithm… in IoT-Healthcare</a></td>
+            <td>Canadian Registration No. 1195054</td><td>2022</td><td>Copyright</td>
           </tr>
           <tr data-type="Copyright">
-            <td>Secure Rescue Management System using Blockchain and Artificial Intelligence</td>
-            <td>Indian Copyright Diary Number: L-158490/2024</td><td>2024</td><td>Copyright</td>
+            <td>Secure Rescue Management System using Blockchain & AI</td>
+            <td>Indian Diary No. L-158490/2024</td><td>2024</td><td>Copyright</td>
           </tr>
           <tr data-type="Copyright">
-            <td>Blockchain Based Ticket Less Train Journey using Iris Recognition</td>
-            <td>Indian Copyright Diary Number: L-159345/2025</td><td>2025</td><td>Copyright</td>
+            <td>Blockchain Based Ticket-Less Train Journey using Iris Recognition</td>
+            <td>Indian Diary No. L-159345/2025</td><td>2025</td><td>Copyright</td>
           </tr>
+
+          <!-- PATENT -->
           <tr data-type="Patent">
-            <td>Automatic Recommendation System to Overcome Depression in Dysfunctional behavior Using Machine Learning Techniques</td>
-            <td>Indian Patent Application Number: 202341011358</td><td>2023</td><td>Patent</td>
+            <td>Automatic Recommendation System to Overcome Depression…</td>
+            <td>Indian Patent App. No. 202341011358</td><td>2023</td><td>Patent</td>
           </tr>
+
+          <!-- BOOKS -->
           <tr data-type="Book">
             <td><a href="https://www.amazon.in/Information-Centric-Networks-Future-Internet/dp/365979435X" target="_blank" rel="noopener">Information Centric Networks: Future Internet</a></td>
-            <td>LAP LAMBERT publication</td><td>2015</td><td>Book</td>
+            <td>LAP LAMBERT</td><td>2015</td><td>Book</td>
           </tr>
           <tr data-type="Book">
-            <td><a href="https://www.amazon.in/Hybrid-Particle-Swarm-Optimization-Clustering/dp/3659795119/ref=sr_1_1?crid=1KLPJL7CA0JPL&keywords=Hybrid+Particle+Swarm+Optimization+for+Data+Clustering&qid=1676732918&s=books&sprefix=hybrid+particle+swarm+optimization+for+data+clustering%2Cstripbooks%2C515&sr=1-1" target="_blank" rel="noopener">Hybrid Particle Swarm Optimization for Data Clustering</a></td>
-            <td>LAP LAMBERT publication</td><td>2015</td><td>Book</td>
+            <td><a href="https://www.amazon.in/Hybrid-Particle-Swarm-Optimization-Clustering/dp/3659795119" target="_blank" rel="noopener">Hybrid Particle Swarm Optimization for Data Clustering</a></td>
+            <td>LAP LAMBERT</td><td>2015</td><td>Book</td>
           </tr>
           <tr data-type="Book">
-            <td><a href="https://www.amazon.in/Performance-Analysis-Multilayer-Micro-Antenna/dp/3330002131/ref=sr_1_1?crid=3T145LRIAA85O&keywords=Performance+Analysis+of+Multilayer+Micro+Strip+Patch+Antenna&qid=1676735584&s=books&sprefix=performance+analysis+of+multilayer+micro+strip+patch+antenna%2Cstripbooks%2C227&sr=1-1" target="_blank" rel="noopener">Performance Analysis of Multilayer Micro Strip Patch Antenna</a></td>
-            <td>LAP LAMBERT publication</td><td>2016</td><td>Book</td>
+            <td><a href="https://www.amazon.in/Performance-Analysis-Multilayer-Micro-Antenna/dp/3330002131" target="_blank" rel="noopener">Performance Analysis of Multilayer Micro Strip Patch Antenna</a></td>
+            <td>LAP LAMBERT</td><td>2016</td><td>Book</td>
           </tr>
           <tr data-type="Book">
             <td><a href="https://www.flipkart.com/data-mining-final-year-degree-course-electronics-telecommunication-engineering-semester-7-sppu/p/itm17fdc133bf5c1" target="_blank" rel="noopener">Data Mining</a></td>
-            <td>NIRALI publications</td><td>2022</td><td>Book</td>
+            <td>NIRALI</td><td>2022</td><td>Book</td>
           </tr>
           <tr data-type="Book">
             <td><a href="https://pragationline.com/artificial-intelligence-and-machine-learning-third-year-t-y-b-tech-course-in-electronics-telecommunication-engineering-semester-5/" target="_blank" rel="noopener">Artificial Intelligence and Machine Learning</a></td>
-            <td>NIRALI publications</td><td>2022</td><td>Book</td>
+            <td>NIRALI</td><td>2022</td><td>Book</td>
           </tr>
           <tr data-type="Book">
             <td><a href="https://pragationline.com/engineering-economics-and-financial-management-final-year-b-e-degree-course-in-mechanical-engineering-semester-8-sppu/" target="_blank" rel="noopener">Engineering Economics and Financial Management</a></td>
-            <td>NIRALI publications</td><td>2023</td><td>Book</td>
-          </tr>
-          <tr data-type="BookChapter">
-            <td><a href="https://www.igi-global.com/gateway/chapter/362648#pnlRecommendationForm" target="_blank" rel="noopener">Machine Learning-Based Allocation of Resources in Blockchain Network for Optimum Efficiency</a></td>
-            <td>IGI Global Scientific publication</td><td>2025</td><td>Book Chapter</td>
-          </tr>
-          <tr data-type="BookChapter">
-            <td><a href="https://www.igi-global.com/book/assistive-technology-solutions-aging-adults/343533" target="_blank" rel="noopener">Studying into the Diagnostic and Therapeutic Applications of Machine Learning Algorithms in Medicine: Medicinal Applications Using Machine Learning</a></td>
-            <td>IGI Global Scientific publication</td><td>2025</td><td>Book Chapter</td>
+            <td>NIRALI</td><td>2023</td><td>Book</td>
           </tr>
 
-        </tbody></table>
+          <!-- BOOK CHAPTERS -->
+          <tr data-type="BookChapter">
+            <td><a href="https://www.igi-global.com/gateway/chapter/362648#pnlRecommendationForm" target="_blank" rel="noopener">ML-Based Allocation of Resources in Blockchain Networks</a></td>
+            <td>IGI Global</td><td>2025</td><td>Book Chapter</td>
+          </tr>
+          <tr data-type="BookChapter">
+            <td><a href="https://www.igi-global.com/book/assistive-technology-solutions-aging-adults/343533" target="_blank" rel="noopener">Diagnostic & Therapeutic Applications of ML in Medicine</a></td>
+            <td>IGI Global</td><td>2025</td><td>Book Chapter</td>
+          </tr>
+        </tbody>
+      </table>
+
+      <!-- Pager -->
+      <div class="pager" id="pubPager">
+        <button id="pubPrev" class="btn" type="button" aria-label="Previous page">‹ Prev</button>
+        <span id="pubInfo" class="muted"></span>
+        <button id="pubNext" class="btn" type="button" aria-label="Next page">Next ›</button>
       </div>
-      <p class="muted">More on <a href="https://scholar.google.com/citations?user=B9A6c0wAAAAJ&hl=en" target="_blank" rel="noopener">Google Scholar</a>.</p>
     </div>
-  </section>
+
+    <p class="muted">More on <a href="https://scholar.google.com/citations?user=B9A6c0wAAAAJ&hl=en" target="_blank" rel="noopener">Google Scholar</a>.</p>
+  </div>
+
+  <!-- Tiny style for pager -->
+  <style>
+    #publications .pager{display:flex;gap:10px;align-items:center;justify-content:flex-end;margin-top:10px}
+    #publications .pager .btn{padding:6px 10px}
+  </style>
+
+  <!-- Pagination script for this section -->
+  <script>
+    (function(){
+      const pageSize = 10;
+      let currentPage = 1;
+
+      const pubTable = document.getElementById('pubTable');
+      const pubRows  = [...pubTable.querySelectorAll('tbody tr')];
+      const pubFilter= document.getElementById('pubFilter');
+      const pubType  = document.getElementById('pubType');
+      const pubPrev  = document.getElementById('pubPrev');
+      const pubNext  = document.getElementById('pubNext');
+      const pubInfo  = document.getElementById('pubInfo');
+
+      function getFiltered(){
+        const text = (pubFilter.value||'').toLowerCase();
+        const typ  = (pubType.value||'all').toLowerCase();
+        return pubRows.filter(r=>{
+          const okType = (typ==='all') || (r.dataset.type.toLowerCase()===typ);
+          const okText = r.innerText.toLowerCase().includes(text);
+          return okType && okText;
+        });
+      }
+
+      function showPage(p=1){
+        const rows = getFiltered();
+        const total = rows.length;
+        const pages = Math.max(1, Math.ceil(total/pageSize));
+        currentPage = Math.min(Math.max(1,p), pages);
+
+        pubRows.forEach(r=>r.style.display='none');
+        const start = (currentPage-1)*pageSize;
+        rows.slice(start, start+pageSize).forEach(r=>r.style.display='');
+
+        pubInfo.textContent = `Page ${currentPage} of ${pages} • ${total} item${total!==1?'s':''}`;
+        pubPrev.disabled = currentPage===1;
+        pubNext.disabled = currentPage===pages;
+      }
+
+      pubFilter.addEventListener('input', ()=>showPage(1));
+      pubType.addEventListener('change', ()=>showPage(1));
+      pubPrev.addEventListener('click', ()=>showPage(currentPage-1));
+      pubNext.addEventListener('click', ()=>showPage(currentPage+1));
+
+      showPage(1);
+    })();
+  </script>
+</section>
+
 
   <!-- COURSES -->
   <section id="courses">
