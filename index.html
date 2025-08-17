@@ -744,11 +744,15 @@
   }
 
   .slide img {
-    width: 100%;
-    height: 400px;
-    object-fit: cover;
-    border-bottom: 3px solid #0073e6;
-  }
+  width: 100%;
+  height: auto;          /* let the image set its own height */
+  max-height: 520px;     /* keep things reasonable on tall images */
+  object-fit: contain;   /* no cropping; letterbox if needed */
+  background: #fff;      /* fill behind any letterbox bars */
+  display: block;
+  border-bottom: 3px solid #0073e6;
+}
+
 
   .caption {
     background: #fff;
