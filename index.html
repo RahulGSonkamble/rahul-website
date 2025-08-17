@@ -899,13 +899,60 @@
 </style>
 
 
-  <!-- MEMBERSHIPS -->
-  <section id="memberships">
-    <div class="container">
-      <h2>Memberships</h2>
-      <div class="pillbar"><span class="badge">IEEE</span><span class="badge">ACM</span><span class="badge">LMISTE</span></div>
+ <!-- MEMBERSHIPS -->
+<section id="memberships">
+  <div class="container">
+    <h2>Memberships</h2>
+
+    <div class="grid grid-3">
+      <!-- ISTE -->
+      <div class="card membership">
+        <img class="mem-logo" src="assets/img/memberships/iste_logo_20082014_041944PM-1.png" alt="ISTE logo">
+        <h3>Indian Society for Technical Education (ISTE)</h3>
+        <p class="muted">Life Member</p>
+        <p><strong>Membership No.:</strong> LM 102695</p>
+        <span class="badge badge-lifetime">Lifetime</span>
+      </div>
+
+      <!-- IEI -->
+      <div class="card membership">
+        <img class="mem-logo" src="assets/img/memberships/LogoNew.png" alt="IEI logo">
+        <h3>The Institution of Engineers (India) — IEI</h3>
+        <p class="muted">Associate Member (AMIE) — Lifetime</p>
+        <p><strong>Membership No.:</strong> AM 178069-5</p>
+        <span class="badge badge-lifetime">Lifetime</span>
+      </div>
+
+      <!-- ACM -->
+      <div class="card membership">
+        <img class="mem-logo" src="assets/img/memberships/acm_rgb_grad_pos_diamond.png" alt="ACM logo">
+        <h3>Association for Computing Machinery (ACM)</h3>
+        <p class="muted">Member</p>
+        <p><strong>Validity:</strong> Nov 2024 – Nov 2025</p>
+        <span class="badge badge-active">Active</span>
+      </div>
     </div>
-  </section>
+
+    <p class="tiny muted" style="margin-top:8px">
+      Add logos at <code>assets/img/memberships/</code> as <code>iste.png</code>, <code>iei.png</code>, <code>acm.png</code>.
+    </p>
+  </div>
+</section>
+
+<!-- Inline styles for memberships -->
+<style>
+  #memberships .membership{
+    display:flex; flex-direction:column; align-items:center; text-align:center; gap:6px;
+    min-height: 230px; justify-content:center;
+  }
+  #memberships .mem-logo{
+    height:56px; width:auto; object-fit:contain; background:#fff;
+    border:1px solid var(--ring); border-radius:10px; padding:6px; margin-bottom:6px;
+  }
+  #memberships .badge-lifetime{ background:#e8f5e9; border:1px solid #c8e6c9; }
+  #memberships .badge-active{ background:#e3f2fd; border:1px solid #bbdefb; }
+</style>
+
 
   <!-- CONTACT -->
   <section id="contact">
