@@ -119,9 +119,28 @@ a:hover{color:var(--pcu-accent-600); text-decoration:underline}
 #mou .logo-card:hover{transform:translateY(-4px); box-shadow:0 14px 30px rgba(2,8,23,.10)}
 
 /* Footer */
-footer{background:var(--pcu-primary); color:#fff}
-footer a{color:#fff; text-decoration:underline}
-footer .tag{background:rgba(255,255,255,.12); color:#fff; border:1px solid rgba(255,255,255,.18)}
+/* Footer: PCU blue background, white text */
+#footer { background: var(--pcu-primary); color: #fff; }
+#footer .muted { color: rgba(255,255,255,.85); }
+#footer a { color: rgba(255,255,255,.95); text-decoration: none; border-bottom: 1px dashed transparent; }
+#footer a:hover { color: #B3E5FC; border-bottom-color: rgba(179,229,252,.7); } /* soft light-blue, not red */
+/* Header theme: solid PCU blue with white nav */
+header { background: var(--pcu-primary); border-bottom: none; box-shadow: var(--shadow); }
+header .brand, header .brand span { color: #fff; }
+header .menu a { color: #eef4fb; }
+header .menu a:hover, header .menu a.active {
+  background: rgba(255,255,255,.12);
+  text-decoration: none;
+}
+/* Alternate subtle backgrounds for sections */
+section:nth-of-type(odd) { background: #ffffff; }
+section:nth-of-type(even) { background: #f8fbff; } /* very light blue wash */
+section { border-bottom: 1px solid var(--ring); }
+
+/* Make the calendar responsive */
+.cal-embed { position: relative; padding-bottom: 70vh; height: 0; overflow: hidden; }
+.cal-embed iframe { position: absolute; top: 0; left: 0; width: 100%; height: 100%; border: 0; }
+@media (max-width: 900px) { .cal-embed { padding-bottom: 85vh; } }
 
   </style>
 
@@ -1163,28 +1182,35 @@ footer .tag{background:rgba(255,255,255,.12); color:#fff; border:1px solid rgba(
       <div class="card"><p>“Sets the standards high for research and teaching.”</p><p class="muted">— Mr. Gurunath Machhale (Research Scholar)</p></div>
     </div></div></section>
 
-  <section id="academic-calendar">
+ <!-- ACADEMIC CALENDAR (public embed + fallback) -->
+<section id="academic-calendar">
   <div class="container">
     <h2>Academic Calendar</h2>
     <div class="card">
-      <iframe
-        title="Academic Calendar"
-        style="width:100%;height:600px;border:0"
-        src="https://calendar.google.com/calendar/embed?
-          src=cmFodWwuc29ua2FtYmxlQHBjdS5lZHUuaW4
-          &src=en.indian%23holiday%40group.v.calendar.google.com
-          &color=%23039BE5
-          &ctz=Asia%2FKolkata
-          &mode=MONTH
-          &showTitle=0
-          &showPrint=0
-          &showTabs=1
-          &showCalendars=0
-          &showTz=0">
-      </iframe>
+      <div class="cal-embed">
+        <iframe
+          title="Academic Calendar"
+          src="https://calendar.google.com/calendar/embed?height=600&wkst=1&bgcolor=%23ffffff
+&ctz=Asia%2FKolkata
+&showTitle=0&showPrint=0&showTabs=1&showCalendars=0&showTz=0
+&src=rahul.sonkamble%40pcu.edu.in
+&src=en.indian%23holiday%40group.v.calendar.google.com
+&color=%23039BE5&color=%23B39DDB"
+          allowtransparency="true"
+          loading="lazy">
+        </iframe>
+      </div>
+
+      <p class="tiny muted" style="margin-top:10px">
+        If the calendar doesn’t load in your browser, open it directly:
+        <a class="btn" href="https://calendar.google.com/calendar/embed?src=rahul.sonkamble%40pcu.edu.in&src=en.indian%23holiday%40group.v.calendar.google.com&ctz=Asia%2FKolkata" target="_blank" rel="noopener">
+          Open in Google Calendar
+        </a>
+      </p>
     </div>
   </div>
 </section>
+
 
 
 </main>
