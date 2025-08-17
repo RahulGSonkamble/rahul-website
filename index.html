@@ -202,6 +202,120 @@ header .menu a:focus-visible{
   margin-right: 8px;
 }
 
+/* ---------- MOBILE FIRST IMPROVEMENTS ---------- */
+
+/* Make tap targets roomy on touch */
+a, .btn, .menu a { touch-action: manipulation; }
+
+/* Publications table safe on small screens */
+@media (max-width: 900px){
+  #publications .card { overflow-x: auto; }
+  #publications table { min-width: 720px; } /* horizontal scroll if needed */
+}
+
+/* Slider images adapt height automatically */
+@media (max-width: 900px){
+  .slider { max-width: 100%; border-radius: 0; }
+  .slide img { max-height: 360px; }
+}
+
+/* Uniform gallery on phones */
+@media (max-width: 700px){
+  #gallery .gallery {
+    grid-template-columns: repeat(2, 1fr);
+    gap: 10px;
+  }
+  #gallery .gallery img { height: 160px; }
+}
+
+/* Stats become 2-wide then 1-wide */
+@media (max-width: 900px){
+  .stats { gap: 12px; }
+  .stat { min-width: calc(50% - 6px); }
+}
+@media (max-width: 520px){
+  .stat { min-width: 100%; }
+}
+
+/* Headings scale nicely */
+h1 { font-size: clamp(26px, 6vw, 44px); }
+h2 { font-size: clamp(22px, 4.5vw, 34px); }
+
+/* Ticker text smaller on phones */
+@media (max-width: 700px){
+  .pcu-ticker { padding: 6px 0; }
+  .pcu-ticker { font-size: 13px; }
+}
+
+/* --------- NAV: COLLAPSIBLE HAMBURGER --------- */
+.menu-toggle{
+  display:none;
+  border:1px solid var(--ring);
+  background:transparent;
+  color:#fff;
+  padding:8px 12px;
+  border-radius:8px;
+  font-size:18px;
+}
+
+@media (max-width: 1024px){
+  header nav { gap: 10px; }
+  .menu-toggle{ display:block; }
+  /* stack menu */
+  .menu{
+    position: absolute;
+    left: 0; right: 0;
+    top: 100%;
+    background: #0e4876;             /* same family as header */
+    border-bottom: 1px solid rgba(255,255,255,.15);
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 6px 10px;
+    padding: 12px 16px;
+    transform: translateY(-8px);
+    opacity: 0; pointer-events:none;
+    transition: opacity .2s ease, transform .2s ease;
+  }
+  .menu a{
+    color:#fff;
+    padding: 10px 12px;
+    border-radius: 8px;
+    background: rgba(255,255,255,.06);
+  }
+  /* opened state */
+  .menu.open{
+    transform: translateY(0);
+    opacity: 1; pointer-events:auto;
+  }
+}
+
+/* phone: single column menu */
+@media (max-width: 560px){
+  .menu{ grid-template-columns: 1fr; }
+}
+
+/* Brand & PCU logo don’t crowd on small screens */
+@media (max-width: 1024px){
+  .brand{ font-size: 16px; }
+  .pcu-logo img{ height: 36px; }
+}
+
+/* Grids collapse to one column by default on phones */
+@media (max-width: 900px){
+  .grid-3, .grid-2 { grid-template-columns: 1fr !important; }
+  .container { padding: 0 16px; }
+  .profile { max-width: 100%; }
+}
+
+/* Cards: soften spacing on phones */
+@media (max-width: 900px){
+  .card { padding: 14px; }
+}
+
+/* Footer text always readable on blue */
+#footer .tiny.muted { color: rgba(255,255,255,.85); }
+#footer a { color: #cfe8ff; }
+#footer a:hover { color: #e4f1ff; text-decoration: underline; }
 
   </style>
 
@@ -211,8 +325,10 @@ header .menu a:focus-visible{
    "jobTitle":"Assistant Professor, CSE (AI&ML)","email":"rahul.sonkamble@pcu.edu.in",
    "url":"https://rahulgsonkamble.github.io/rahul-website/",
    "sameAs":["https://scholar.google.com/citations?user=B9A6c0wAAAAJ&hl=en","https://orcid.org/0000-0001-6075-9519"]}
+    
   </script>
 </head>
+  
 <body>
  
 <a class="skip" href="#main">Skip to content</a>
@@ -230,7 +346,8 @@ header .menu a:focus-visible{
       </a>
     </div>
       <div class="brand"><span class="dot" aria-hidden="true"></span><span>Dr. Rahul G. Sonkamble</span></div>
-      
+      <button class="menu-toggle" aria-expanded="false" aria-controls="menu" aria-label="Open menu">  ☰ </button>
+
       <div class="menu" id="menu">
         <a href="#home" class="active">Home</a><a href="#about">About</a><a href="#research">Research</a>
         <a href="#publications">Publications</a><a href="#courses">Courses</a><a href="#skills">Skills</a>
@@ -1358,5 +1475,18 @@ header .menu a:focus-visible{
     };
   });
 </script>
+  <script>
+  // Mobile nav toggle
+  (() => {
+    const btn = document.querySelector('.menu-toggle');
+    const menu = document.getElementById('menu');
+    if(!btn || !menu) return;
+    btn.addEventListener('click', () => {
+      const open = menu.classList.toggle('open');
+      btn.setAttribute('aria-expanded', open ? 'true' : 'false');
+    });
+  })();
+</script>
+
 </body>
 </html>
