@@ -817,17 +817,87 @@
 </script>
 
 
-  <!-- CERTIFICATIONS -->
-  <section id="certs">
-    <div class="container">
-      <h2>Certifications</h2>
-      <div class="gallery">
-        <img src="https://picsum.photos/seed/cert1/800/600" alt="Certificate 1 placeholder">
-        <img src="https://picsum.photos/seed/cert2/800/600" alt="Certificate 2 placeholder">
-        <img src="https://picsum.photos/seed/cert3/800/600" alt="Certificate 3 placeholder">
+ <!-- CERTIFICATIONS -->
+<section id="certs">
+  <div class="container">
+    <h2>Certifications</h2>
+
+    <div class="gallery">
+      <div class="cert-card">
+        <a href="certificates/Basics.jpg" target="_blank" rel="noopener">
+          <img src="certificates/Basics.jpg" alt="Blockchain Basics — Coursera certificate">
+        </a>
+        <p><strong>Blockchain Basics</strong><br>Coursera — 12/01/2019</p>
+      </div>
+
+      <div class="cert-card">
+        <a href="certificates/Udemy.jpg" target="_blank" rel="noopener">
+          <img src="certificates/Udemy.jpg" alt="Solidity: Programming Language for Smart Contracts — Udemy certificate">
+        </a>
+        <p><strong>Solidity: Programming Language for Smart Contracts</strong><br>Udemy — 28/11/2019</p>
+      </div>
+
+      <div class="cert-card">
+        <a href="certificates/Smart.jpg" target="_blank" rel="noopener">
+          <img src="certificates/Smart.jpg" alt="Smart Contracts — Coursera certificate">
+        </a>
+        <p><strong>Smart Contracts</strong><br>Coursera — 26/05/2020</p>
+      </div>
+
+      <div class="cert-card">
+        <a href="certificates/DAPP.jpg" target="_blank" rel="noopener">
+          <img src="certificates/DAPP.jpg" alt="Decentralized Applications (Dapps) — Coursera certificate">
+        </a>
+        <p><strong>Decentralized Applications (Dapps)</strong><br>Coursera — 04/09/2020</p>
+      </div>
+
+      <div class="cert-card">
+        <a href="certificates/Polygon.jpg" target="_blank" rel="noopener">
+          <img src="certificates/Polygon.jpg" alt="Global Certification in Polygon Developer — Blockchain Council certificate">
+        </a>
+        <p><strong>Global Certification in Polygon Developer</strong><br>Blockchain Council — 16/01/2024</p>
       </div>
     </div>
-  </section>
+  </div>
+</section>
+
+<!-- Add these styles (inline or in your existing <style>) -->
+<style>
+  /* Grid layout for certificates */
+  #certs .gallery{
+    display:grid;
+    grid-template-columns:repeat(auto-fit,minmax(240px,1fr));
+    gap:18px;
+  }
+  /* Card look */
+  #certs .cert-card{
+    background:var(--bg);
+    border:1px solid var(--ring);
+    border-radius:12px;
+    padding:12px;
+    text-align:center;
+    box-shadow:var(--shadow);
+    transition:transform .2s ease, box-shadow .2s ease;
+  }
+  #certs .cert-card:hover{
+    transform:translateY(-4px);
+    box-shadow:0 12px 24px rgba(0,0,0,.12);
+  }
+  /* Image */
+  #certs .cert-card img{
+    width:100%;
+    height:auto;
+    border-radius:8px;
+    display:block;
+    margin-bottom:10px;
+    border:1px solid var(--ring);
+  }
+  #certs .cert-card p{
+    margin:0;
+    font-size:14px;
+  }
+</style>
+
 
   <!-- MEMBERSHIPS -->
   <section id="memberships">
