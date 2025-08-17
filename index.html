@@ -51,6 +51,78 @@
     .badge{padding:6px 10px;border-radius:10px;background:var(--ring);font-size:12px;font-weight:600}
     .logo{height:44px;object-fit:contain;background:#fff;border-radius:10px;padding:6px;border:1px solid var(--ring)}
     .profile{width:100%;max-width:360px;border-radius:14px;border:1px solid var(--ring)}
+    /* === PCU Brand Elevation Pack === */
+
+/* Palette (you already defined primary/accent; add a few tints/shades) */
+:root{
+  --pcu-primary-50:#eaf3fb;
+  --pcu-primary-100:#d6e7f7;
+  --pcu-primary-600:#0b4a7f; /* same as --pcu-primary */
+  --pcu-accent-600:#c62828;
+}
+
+/* Header + Nav */
+header{background:linear-gradient(180deg,#ffffff 0%, #f6f9fc 100%); border-bottom:1px solid var(--ring); box-shadow: var(--shadow)}
+.brand span:last-child{color:var(--pcu-primary); letter-spacing:.2px}
+.menu a{color:var(--ink)}
+.menu a.active,.menu a:hover{
+  background:var(--pcu-primary-50);
+  color:var(--pcu-primary);
+  text-decoration:none;
+  box-shadow: inset 0 -2px 0 var(--pcu-primary);
+  transition: background .2s ease, box-shadow .2s ease, color .2s ease;
+}
+
+/* Section headings with accent underline */
+section h2{position:relative; padding-bottom:6px}
+section h2::after{
+  content:""; position:absolute; left:0; bottom:-2px;
+  width:72px; height:3px; border-radius:2px;
+  background:var(--pcu-accent-600);
+}
+
+/* Alternating subtle section backgrounds for scannability */
+main section:nth-of-type(even){background:#fbfdff}
+
+/* Cards */
+.card{
+  background:#fff;
+  border:1px solid #e6edf5;
+  border-radius:14px;
+  box-shadow: 0 8px 20px rgba(2,8,23,.06);
+}
+.card:hover{box-shadow:0 14px 30px rgba(2,8,23,.10)}
+
+/* Stats */
+.stats .stat{
+  background:linear-gradient(180deg,#fff 0%, #f9fbfe 100%);
+  border:1px dashed #e3ecf7;
+}
+.stats .num{color:var(--pcu-primary)}
+
+/* Badges & tags */
+.badge{background:#eaf2fb; color:var(--pcu-primary); border:1px solid #d9e6f6}
+.tag{background:#eef2f7; color:#3e4a5a}
+
+/* Buttons & links */
+.btn.primary{background:var(--pcu-primary); color:#fff}
+.btn.primary:hover{filter:brightness(.95)}
+a{color:var(--pcu-primary)}
+a:hover{color:var(--pcu-accent-600); text-decoration:underline}
+
+/* Tables (publications) */
+#pubTable th{background:#f6f9fe; color:#0b2b4a}
+#pubTable tbody tr:hover{background:#f8fbff}
+
+/* MoU logos (already added styles) */
+#mou .logo-card{border:1px solid #e6edf5; background:#fff}
+#mou .logo-card:hover{transform:translateY(-4px); box-shadow:0 14px 30px rgba(2,8,23,.10)}
+
+/* Footer */
+footer{background:var(--pcu-primary); color:#fff}
+footer a{color:#fff; text-decoration:underline}
+footer .tag{background:rgba(255,255,255,.12); color:#fff; border:1px solid rgba(255,255,255,.18)}
+
   </style>
 
   <script type="application/ld+json">
