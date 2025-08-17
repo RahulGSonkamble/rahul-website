@@ -1064,6 +1064,22 @@
   </div>
 </section>
 
+<!-- CSS to make all photos same size -->
+<style>
+  #gallery .gallery {
+    display: grid;
+    grid-template-columns: repeat(auto-fill, minmax(250px, 1fr));
+    gap: 15px;
+  }
+  #gallery .gallery img {
+    width: 100%;
+    height: 200px;        /* Fixed height */
+    object-fit: cover;    /* Ensures all images fill area evenly */
+    border-radius: 8px;   /* Optional: rounded corners */
+  }
+</style>
+
+
 
   <section id="testimonials"><div class="container"><h2>Testimonials</h2>
     <div class="grid grid-3">
