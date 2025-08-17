@@ -142,6 +142,34 @@ section { border-bottom: 1px solid var(--ring); }
 .cal-embed iframe { position: absolute; top: 0; left: 0; width: 100%; height: 100%; border: 0; }
 @media (max-width: 900px) { .cal-embed { padding-bottom: 85vh; } }
 
+    /* === NAV FIX: keep text readable on blue header === */
+header { background: var(--pcu-primary); }
+
+header .brand,
+header .brand span { 
+  color: #fff !important;          /* make your name visible */
+}
+
+header .menu a{
+  color: #ffffff !important;       /* white links by default */
+  background: transparent; 
+  border-radius: 10px;
+}
+
+header .menu a:hover,
+header .menu a:focus,
+header .menu a.active{
+  background: rgba(255,255,255,.18) !important;  /* soft pill on hover/active */
+  color: #ffffff !important;                     /* stay white on hover/active */
+  text-decoration: none;
+}
+
+header .menu a:focus-visible{
+  outline: 2px solid #B3E5FC;
+  outline-offset: 2px;
+  border-radius: 10px;
+}
+
   </style>
 
   <script type="application/ld+json">
