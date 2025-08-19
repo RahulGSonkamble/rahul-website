@@ -522,6 +522,117 @@ h2 { font-size: clamp(22px, 4.5vw, 34px); }
   0%, 100% { transform: translateY(0); }
   50% { transform: translateY(-15px); }
 }
+/* ====== Full-screen Splash (non-blue, formal) ====== */
+/* Palette: warm gray to stone with subtle emerald accents (not blue) */
+:root{
+  --splash-bg-1:#f6f7f9;   /* light stone */
+  --splash-bg-2:#eceff3;   /* cool gray */
+  --splash-ink:#0e1a2b;    /* inky text */
+  --splash-accent:#1b8f6a; /* emerald accent (matches your green dot family) */
+}
+
+@media (prefers-reduced-motion: reduce) {
+  #pcuSplash * { animation: none !important; transition: none !important; }
+}
+
+#pcuSplash{
+  position: fixed; inset: 0; z-index: 9999;
+  background:
+    radial-gradient(900px 500px at 75% -10%, rgba(27,143,106,.08), transparent 60%),
+    linear-gradient(135deg, var(--splash-bg-1) 0%, var(--splash-bg-2) 100%);
+  color: var(--splash-ink);
+  display: grid; place-items: center;
+  overflow: hidden;
+  transition: opacity .6s ease, visibility .6s ease;
+}
+#pcuSplash.hide{ opacity:0; visibility:hidden; pointer-events:none; }
+
+.splash-inner{
+  width:min(1100px, 92vw);
+  display:grid; grid-template-columns: 1fr 1.2fr 1fr;
+  align-items:center; gap: 18px;
+  padding: 24px;
+}
+
+.splash-col{ display:flex; align-items:center; justify-content:center; }
+
+.splash-left{ justify-content:flex-start; }
+.splash-right{ justify-content:flex-end; }
+
+/* Left: role pill */
+.splash-pill{
+  font-weight:700;
+  letter-spacing:.3px;
+  padding:10px 14px;
+  border-radius:999px;
+  border:1px solid rgba(0,0,0,.06);
+  background:#ffffff;
+  box-shadow: 0 10px 30px rgba(2,8,23,.07);
+  transform: translateY(10px);
+  opacity:0;
+  animation: fadeUp .6s ease .2s forwards;
+  color: var(--splash-accent);
+}
+
+/* Center: branding */
+.splash-logo{ height:72px; width:auto; display:block; margin:0 auto 10px auto;
+  opacity:0; transform: translateY(8px) scale(.98);
+  animation: fadeUp .6s ease .15s forwards;
+}
+.splash-title{
+  margin: 4px 0 2px;
+  font-size: clamp(24px, 4.6vw, 40px);
+  font-weight: 800; letter-spacing:.3px; text-align:center;
+  opacity:0; transform: translateY(8px);
+  animation: fadeUp .6s ease .28s forwards;
+}
+.splash-sub{
+  margin: 0 0 10px; text-align:center; color:#5c6a7b;
+  opacity:0; transform: translateY(8px);
+  animation: fadeUp .6s ease .4s forwards;
+}
+.splash-official{
+  margin: 0; text-align:center; font-weight:600; color:#2d3a4c;
+  opacity:0; transform: translateY(8px);
+  animation: fadeUp .6s ease .52s forwards;
+}
+
+/* Right: photo */
+.splash-photo{
+  width:min(280px, 42vw); height:auto; display:block;
+  border-radius:14px; background:#fff;
+  border:1px solid #e6edf5;
+  box-shadow: 0 10px 30px rgba(2,8,23,.08);
+  opacity:0; transform: translateY(10px);
+  animation: fadeUp .6s ease .32s forwards;
+}
+
+/* Progress line */
+.splash-progress{
+  position:absolute; left:50%; bottom:28px; transform:translateX(-50%);
+  width:220px; height:4px; background:rgba(0,0,0,.08);
+  border-radius:999px; overflow:hidden;
+}
+.splash-progress span{
+  display:block; height:100%; width:40%;
+  background: linear-gradient(90deg, #b8ead8, #e0f2ea); /* soft mint gradient */
+  border-radius:999px; animation: slideBar 1.5s ease-in-out infinite;
+}
+
+/* Keyframes */
+@keyframes fadeUp { to { opacity:1; transform: translateY(0) scale(1); } }
+@keyframes slideBar { 0%{transform:translateX(-120%)} 50%{transform:translateX(30%)} 100%{transform:translateX(120%)} }
+
+/* Responsive: stack on small screens */
+@media (max-width: 900px){
+  .splash-inner{ grid-template-columns: 1fr; text-align:center; gap:12px; }
+  .splash-left, .splash-right{ justify-content:center; }
+  .splash-photo{ width:min(320px, 70vw); }
+  .splash-pill{ margin-bottom:4px; }
+}
+
+/* While splash is visible, lock page scroll */
+body.splash-lock{ overflow:hidden; }
 
   </style>
 
@@ -536,23 +647,34 @@ h2 { font-size: clamp(22px, 4.5vw, 34px); }
 </head>
   
 <body>
-  <!-- Splash Screen -->
-<div id="splash-screen">
-  <div class="splash-content">
-    <img src="images/gallery/PL.png" alt="PCU Logo" class="splash-logo" />
-    <h1 class="splash-text">Pimpri Chinchwad University</h1>
+ 
+
+<!-- NEW: Full-screen Splash -->
+<div id="pcuSplash" class="splash" role="dialog" aria-label="Intro">
+  <div class="splash-inner">
+    <!-- Left: role -->
+    <div class="splash-col splash-left" aria-hidden="false">
+      <div class="splash-pill">Blockchain Researcher</div>
+    </div>
+
+    <!-- Center: PCU branding + official line -->
+    <div class="splash-col splash-center">
+      <img class="splash-logo" src="images/gallery/PCU-Logo-white.png" alt="PCU Logo" />
+      <h1 class="splash-title">Pimpri Chinchwad University</h1>
+      <p class="splash-sub">Innovation • Growth • Excellence</p>
+      <p class="splash-official">Official Website of <strong>Dr. Rahul Ganpatrao Sonkamble</strong></p>
+    </div>
+
+    <!-- Right: your photo -->
+    <div class="splash-col splash-right">
+      <img class="splash-photo" src="assets/img/rahul-profile.jpg" alt="Dr. Rahul G. Sonkamble" />
+    </div>
   </div>
+
+  <!-- progress bar line for a touch of motion -->
+  <div class="splash-progress"><span></span></div>
 </div>
 
-<!-- INTRO SPLASH (shows once on load) -->
-<div id="introSplash" aria-hidden="true">
-  <div class="intro-inner">
-    <img class="intro-logo" src="images/gallery/PCU-Logo-white.png" alt="" />
-    <h1 class="intro-title">Pimpri Chinchwad University</h1>
-    <p class="intro-sub">Innovation • Growth • Excellence</p>
-    <div class="intro-bar"><span></span></div>
-  </div>
-</div>
 
  
 
@@ -1866,6 +1988,38 @@ h2 { font-size: clamp(22px, 4.5vw, 34px); }
   });
 </script>
 
+<script>
+  (function(){
+    const splash = document.getElementById('pcuSplash');
+    if(!splash) return;
+
+    // Lock scroll while splash is up
+    document.body.classList.add('splash-lock');
+
+    // Show splash for ~2.4s then hide; then jump to #home smoothly
+    const SHOW_MS = 2400;
+    window.setTimeout(() => {
+      splash.classList.add('hide');
+      document.body.classList.remove('splash-lock');
+      // optional: ensure home is in view after splash
+      const home = document.getElementById('home');
+      if(home) home.scrollIntoView({behavior:'smooth', block:'start'});
+      // remove from DOM later
+      setTimeout(()=> splash.remove(), 800);
+    }, SHOW_MS);
+
+    // If user has reduced-motion, shorten duration
+    try{
+      if(window.matchMedia('(prefers-reduced-motion: reduce)').matches){
+        window.setTimeout(() => {
+          splash.classList.add('hide');
+          document.body.classList.remove('splash-lock');
+          setTimeout(()=> splash.remove(), 400);
+        }, 400);
+      }
+    }catch(e){}
+  })();
+</script>
 
 </body>
 </html>
