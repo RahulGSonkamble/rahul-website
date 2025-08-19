@@ -8,6 +8,7 @@
   <meta property="og:title" content="Dr. Rahul G. Sonkamble — Official Website" />
   <meta property="og:type" content="website" />
   <meta property="og:url" content="https://rahulgsonkamble.github.io/rahul-website/" />
+<link href="https://unpkg.com/aos@2.3.1/dist/aos.css" rel="stylesheet">
 
   <style>
     :root{--pcu-primary:#0b4a7f;--pcu-accent:#c62828;--ink:#0f172a;--muted:#5b6b83;--bg:#fff;--card:#f6f7fb;--ring:#e5e7eb;--shadow:0 10px 30px rgba(2,8,23,.08)}
@@ -471,6 +472,56 @@ h2 { font-size: clamp(22px, 4.5vw, 34px); }
 #footer .tiny.muted { color: rgba(255,255,255,.85); }
 #footer a { color: #cfe8ff; }
 #footer a:hover { color: #e4f1ff; text-decoration: underline; }
+/* Splash Screen Styles */
+#splash-screen {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background: #003366;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  z-index: 2000;
+  animation: fadeOut 2s ease 3s forwards; /* stays for 3s, then fades out */
+}
+
+.splash-content {
+  text-align: center;
+  animation: zoomIn 2s ease;
+}
+
+.splash-logo {
+  width: 120px;
+  height: auto;
+  margin-bottom: 20px;
+  animation: bounce 2s infinite;
+}
+
+.splash-text {
+  font-size: 28px;
+  color: white;
+  font-weight: bold;
+}
+
+/* Keyframes */
+@keyframes fadeOut {
+  to {
+    opacity: 0;
+    visibility: hidden;
+  }
+}
+
+@keyframes zoomIn {
+  from { transform: scale(0.5); opacity: 0; }
+  to { transform: scale(1); opacity: 1; }
+}
+
+@keyframes bounce {
+  0%, 100% { transform: translateY(0); }
+  50% { transform: translateY(-15px); }
+}
 
   </style>
 
@@ -485,6 +536,14 @@ h2 { font-size: clamp(22px, 4.5vw, 34px); }
 </head>
   
 <body>
+  <!-- Splash Screen -->
+<div id="splash-screen">
+  <div class="splash-content">
+    <img src="images/gallery/PL.png" alt="PCU Logo" class="splash-logo" />
+    <h1 class="splash-text">Pimpri Chinchwad University</h1>
+  </div>
+</div>
+
 <!-- INTRO SPLASH (shows once on load) -->
 <div id="introSplash" aria-hidden="true">
   <div class="intro-inner">
@@ -558,7 +617,7 @@ h2 { font-size: clamp(22px, 4.5vw, 34px); }
   </section>
 
   <!-- ABOUT -->
-  <section id="about">
+  <section id="about" data-aos="fade-up">
     <div class="container grid grid-2">
       <div>
         <h2>About Me</h2>
@@ -584,7 +643,7 @@ h2 { font-size: clamp(22px, 4.5vw, 34px); }
   </section>
 
   <!-- RESEARCH -->
-  <section id="research" class="fade-right">
+  <section id="research" data-aos="zoom-in">
     <div class="container">
       <h2>Research Profile</h2>
       <p class="lead">Highlighted projects</p>
@@ -609,7 +668,7 @@ h2 { font-size: clamp(22px, 4.5vw, 34px); }
   </section>
 
   <!-- PUBLICATIONS -->
-<section id="publications">
+<section id="publications" data-aos="flip-left">
   <div class="container">
     <h2>Publications</h2>
 
@@ -1798,6 +1857,13 @@ h2 { font-size: clamp(22px, 4.5vw, 34px); }
 
   targets.forEach(t=>io.observe(t));
 })();
+</script>
+<script src="https://unpkg.com/aos@2.3.1/dist/aos.js"></script>
+<script>
+  AOS.init({
+    duration: 1000,   // animation duration
+    once: true        // run animation only once
+  });
 </script>
 
 
