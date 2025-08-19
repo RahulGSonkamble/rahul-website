@@ -284,6 +284,76 @@ a:hover::after, a:focus-visible::after { right: 0; }
   text-shadow: 0 6px 18px rgba(11,74,127,.18);
 }
 
+/* ====== INTRO SPLASH ====== */
+#introSplash{
+  position: fixed; inset: 0; z-index: 9999;
+  display: grid; place-items: center;
+  background: radial-gradient(1200px 600px at 70% -10%, rgba(255,255,255,.08), transparent),
+              linear-gradient(135deg, #0b4a7f 0%, #0e3d66 50%, #082a45 100%);
+  color: #fff;
+  transition: opacity .6s ease, visibility .6s ease;
+}
+#introSplash.hide{ opacity:0; visibility:hidden; pointer-events:none; }
+#introSplash .intro-inner{ text-align:center; padding: 24px; }
+#introSplash .intro-logo{
+  height: 76px; width:auto; opacity:0; transform: translateY(8px) scale(.98);
+  animation: introFadeUp .7s ease forwards .1s;
+}
+#introSplash .intro-title{
+  margin: 16px 0 4px; font-weight: 800; letter-spacing:.3px;
+  font-size: clamp(22px, 4.6vw, 40px); opacity:0; transform: translateY(10px);
+  animation: introFadeUp .7s ease forwards .25s;
+}
+#introSplash .intro-sub{
+  margin: 0 0 18px; opacity:0; transform: translateY(10px);
+  animation: introFadeUp .7s ease forwards .38s;
+  color: #d8e9ff;
+}
+#introSplash .intro-bar{
+  width: 220px; height: 4px; background: rgba(255,255,255,.25);
+  border-radius: 999px; overflow: hidden; margin: 0 auto;
+}
+#introSplash .intro-bar span{
+  display:block; height:100%; width:40%;
+  background: linear-gradient(90deg, #B3E5FC, #E1F5FE);
+  border-radius: 999px; animation: barMove 1.4s ease-in-out infinite;
+}
+
+/* Keyframes */
+@keyframes introFadeUp{
+  to { opacity:1; transform: translateY(0) scale(1); }
+}
+@keyframes barMove{
+  0%   { transform: translateX(-120%); }
+  50%  { transform: translateX(30%); }
+  100% { transform: translateX(120%); }
+}
+
+/* ====== SCROLL REVEALS ====== */
+/* base state */
+.reveal{ opacity:0; transform: translateY(16px); will-change: transform, opacity; }
+.reveal.in{ opacity:1; transform:none; transition: transform .6s ease, opacity .6s ease; }
+
+/* optional variants */
+.fade-up.reveal.in{ transition-duration:.7s; }
+.fade-right{ transform: translateX(-16px); }
+.fade-right.in{ transform:none; }
+.fade-left{ transform: translateX(16px); }
+.fade-left.in{ transform:none; }
+
+/* gentle stagger via CSS var --d (set in JS) */
+.reveal{ transition-delay: var(--d, 0ms); }
+
+/* Respect reduced motion */
+@media (prefers-reduced-motion: reduce){
+  #introSplash .intro-logo,
+  #introSplash .intro-title,
+  #introSplash .intro-sub,
+  #introSplash .intro-bar span,
+  .reveal,
+  .reveal.in { animation: none !important; transition: none !important; transform: none !important; opacity: 1 !important; }
+  #introSplash{ display:none; }
+}
 
 /* ---------- MOBILE FIRST IMPROVEMENTS ---------- */
 
@@ -413,7 +483,17 @@ h2 { font-size: clamp(22px, 4.5vw, 34px); }
 </head>
   
 <body>
- 
+<!-- INTRO SPLASH (shows once on load) -->
+<div id="introSplash" aria-hidden="true">
+  <div class="intro-inner">
+    <img class="intro-logo" src="images/gallery/PCU-Logo-white.png" alt="" />
+    <h1 class="intro-title">Pimpri Chinchwad University</h1>
+    <p class="intro-sub">Innovation • Growth • Excellence</p>
+    <div class="intro-bar"><span></span></div>
+  </div>
+</div>
+
+  
 <a class="skip" href="#main">Skip to content</a>
 <div id="progress"></div>
 
@@ -1661,6 +1741,59 @@ h2 { font-size: clamp(22px, 4.5vw, 34px); }
   };
   onScroll();
   window.addEventListener('scroll', onScroll, { passive: true });
+})();
+</script>
+<script>
+/* ====== INTRO SPLASH: hide when page is ready ====== */
+(function(){
+  const splash = document.getElementById('introSplash');
+  if(!splash) return;
+
+  // Hide as soon as page is ready, with a tiny minimum show time to feel intentional
+  const MIN_SHOW = 900; // ms
+  const start = Date.now();
+
+  function hideSplash(){
+    const dt = Date.now() - start;
+    const wait = Math.max(0, MIN_SHOW - dt);
+    setTimeout(() => splash.classList.add('hide'), wait);
+    // remove from DOM after transition (optional)
+    setTimeout(() => splash.remove(), wait + 700);
+  }
+
+  // Prefer 'load' to include images/fonts; fallback to DOMContentLoaded
+  window.addEventListener('load', hideSplash);
+  document.addEventListener('DOMContentLoaded', () => {
+    // safety: if 'load' never fires (aggressive caching), hide anyway at 2.5s
+    setTimeout(()=>{ if(!splash.classList.contains('hide')) hideSplash(); }, 2500);
+  });
+})();
+
+/* ====== SCROLL REVEAL OBSERVER ====== */
+(function(){
+  // What to reveal: sections, cards, stats, gallery images, table rows (light), etc.
+  const targets = [
+    ...document.querySelectorAll('section, .card, .stat, .gallery img, #pubTable tbody tr, .logo')
+  ];
+
+  // Mark everything with reveal; add optional variant classes per area (customize)
+  targets.forEach((el,i)=>{
+    el.classList.add('reveal','fade-up');
+    // stagger siblings slightly
+    el.style.setProperty('--d', (i % 8) * 60 + 'ms');
+  });
+
+  const io = new IntersectionObserver(entries => {
+    entries.forEach(e=>{
+      if(e.isIntersecting){
+        e.target.classList.add('in');
+        // unobserve once animated in (keeps perf snappy)
+        io.unobserve(e.target);
+      }
+    });
+  }, { threshold: 0.15, rootMargin: '60px 0px -10px 0px' });
+
+  targets.forEach(t=>io.observe(t));
 })();
 </script>
 
