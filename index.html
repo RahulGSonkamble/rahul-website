@@ -355,90 +355,7 @@ a:hover::after, a:focus-visible::after { right: 0; }
   #introSplash{ display:none; }
 }
 
-    /* ===== FULLSCREEN INTRO ===== */
-#fsIntro{
-  position:fixed; inset:0; z-index:9999; overflow:hidden;
-  display:grid; place-items:center; color:#fff;
-  /* animated gradient background */
-  background: linear-gradient(120deg,#0b4a7f 0%, #0e3d66 40%, #082a45 100%);
-  animation: fsI-bg 10s ease-in-out infinite alternate;
-  transition: opacity .6s ease, visibility .6s ease;
-}
-#fsIntro.hide{ opacity:0; visibility:hidden; pointer-events:none; }
-
-/* soft grain overlay */
-#fsIntro .fsI-overlay{
-  position:absolute; inset:0;
-  background:
-    radial-gradient(1000px 600px at 70% -10%, rgba(255,255,255,.10), transparent),
-    radial-gradient(600px 400px at 20% 120%, rgba(255,255,255,.06), transparent);
-  pointer-events:none;
-}
-
-/* diagonal light beams */
-#fsIntro .fsI-beam{
-  position:absolute; inset:0; mix-blend-mode:screen; opacity:.22; filter: blur(2px);
-  background: linear-gradient( to right, rgba(179,229,252,0) 0%, rgba(179,229,252,.9) 50%, rgba(179,229,252,0) 100% );
-  transform: skewY(-12deg) translateX(-60%);
-  animation: fsI-beam 4.6s ease-in-out infinite;
-}
-#fsIntro .fsI-beam-2{
-  animation-delay: 1.6s; opacity:.16; transform: skewY(-12deg) translateX(60%);
-}
-
-/* center content */
-#fsIntro .fsI-inner{ text-align:center; padding:24px; position:relative; z-index:1; }
-#fsIntro .fsI-logo{ height:86px; width:auto; opacity:0; transform: translateY(10px) scale(.98); animation: fsI-in .7s ease forwards .15s; }
-#fsIntro .fsI-title{
-  margin:16px 0 6px; font-weight:800; letter-spacing:.3px;
-  font-size: clamp(24px, 5vw, 46px); opacity:0; transform: translateY(12px);
-  animation: fsI-in .7s ease forwards .28s;
-}
-#fsIntro .fsI-sub{
-  margin:0 0 20px; color:#d8e9ff; opacity:0; transform: translateY(12px);
-  animation: fsI-in .7s ease forwards .42s;
-}
-
-/* progress bar */
-#fsIntro .fsI-bar{ width:260px; height:4px; background: rgba(255,255,255,.25); border-radius:999px; overflow:hidden; margin:0 auto 16px; }
-#fsIntro .fsI-bar span{
-  display:block; height:100%; width:42%;
-  background: linear-gradient(90deg,#B3E5FC,#E1F5FE);
-  border-radius:999px; animation: fsI-bar 1.3s ease-in-out infinite;
-}
-
-/* skip button */
-#fsIntro .fsI-skip{
-  margin-top:6px; padding:8px 14px;
-  background: rgba(255,255,255,.14); color:#fff; border:1px solid rgba(255,255,255,.35);
-  border-radius:8px; cursor:pointer;
-  backdrop-filter: blur(2px);
-}
-#fsIntro .fsI-skip:hover{ background: rgba(255,255,255,.22); }
-
-/* keyframes */
-@keyframes fsI-in { to { opacity:1; transform: none; } }
-@keyframes fsI-bar {
-  0%{ transform: translateX(-120%); }
-  50%{ transform: translateX(30%); }
-  100%{ transform: translateX(120%); }
-}
-@keyframes fsI-bg {
-  0%{ background-position: 0% 50%; }
-  100%{ background-position: 100% 50%; }
-}
-@keyframes fsI-beam{
-  0%{ transform: skewY(-12deg) translateX(-70%); }
-  50%{ transform: skewY(-12deg) translateX(0%); }
-  100%{ transform: skewY(-12deg) translateX(70%); }
-}
-
-/* accessibility: minimize motion if requested */
-@media (prefers-reduced-motion: reduce){
-  #fsIntro{ animation: none !important; }
-  #fsIntro .fsI-logo, #fsIntro .fsI-title, #fsIntro .fsI-sub,
-  #fsIntro .fsI-bar span, #fsIntro .fsI-beam{ animation: none !important; }
-}
+ 
 
 /* ---------- MOBILE FIRST IMPROVEMENTS ---------- */
 
@@ -578,20 +495,7 @@ h2 { font-size: clamp(22px, 4.5vw, 34px); }
   </div>
 </div>
 
-  <!-- FULLSCREEN INTRO -->
-<div id="fsIntro" aria-hidden="true">
-  <div class="fsI-overlay"></div>
-  <div class="fsI-beam fsI-beam-1"></div>
-  <div class="fsI-beam fsI-beam-2"></div>
-
-  <div class="fsI-inner">
-    <img class="fsI-logo" src="images/gallery/PCU-Logo-white.png" alt="" />
-    <h1 class="fsI-title">Pimpri Chinchwad University</h1>
-    <p class="fsI-sub">Innovation • Growth • Excellence</p>
-    <div class="fsI-bar"><span></span></div>
-    <button class="fsI-skip" type="button" aria-label="Skip intro">Enter</button>
-  </div>
-</div>
+ 
 
 <a class="skip" href="#main">Skip to content</a>
 <div id="progress"></div>
@@ -1895,36 +1799,7 @@ h2 { font-size: clamp(22px, 4.5vw, 34px); }
   targets.forEach(t=>io.observe(t));
 })();
 </script>
-<script>
-/* Fullscreen intro: hide on load or on user action */
-(function(){
-  const intro = document.getElementById('fsIntro');
-  if(!intro) return;
 
-  const MIN_SHOW = 1000; // ms; keeps it intentional
-  const start = Date.now();
-
-  function hideIntro(){
-    const dt = Date.now() - start;
-    const wait = Math.max(0, MIN_SHOW - dt);
-    setTimeout(()=> intro.classList.add('hide'), wait);
-    setTimeout(()=> intro.remove(), wait + 700); // cleanup
-  }
-
-  // Hide when page is fully loaded (images too)
-  window.addEventListener('load', hideIntro);
-  // Fallback: if load stalls, close after 3s
-  setTimeout(()=>{ if(document.readyState !== 'complete') hideIntro(); }, 3000);
-
-  // User-initiated skip
-  intro.addEventListener('click', e=>{
-    if(e.target.closest('.fsI-skip')) hideIntro();
-  });
-  document.addEventListener('keydown', e=>{
-    if(e.key === 'Escape' && document.body.contains(intro)) hideIntro();
-  });
-})();
-</script>
 
 </body>
 </html>
