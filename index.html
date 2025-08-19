@@ -203,6 +203,87 @@ header .menu a:focus-visible{
   border-radius: 50%;
   margin-right: 8px;
 }
+    /* ====== Professional Motion System (PCU) ====== */
+
+/* Respect reduced-motion */
+@media (prefers-reduced-motion: reduce) {
+  * { animation: none !important; transition: none !important; }
+}
+
+/* Timing & easing */
+:root { --ease: cubic-bezier(.22,.61,.36,1); --dur-fast: .25s; --dur: .6s; --y: 14px; }
+
+/* Section reveal */
+.reveal { opacity: 0; transform: translateY(var(--y)); will-change: transform, opacity; }
+.reveal.in-view { opacity: 1; transform: translateY(0);
+  transition: opacity var(--dur) var(--ease), transform var(--dur) var(--ease); }
+
+/* Staggered child reveal */
+.reveal-stagger > * { opacity: 0; transform: translateY(10px); }
+.reveal-stagger.in-view > * {
+  opacity: 1; transform: translateY(0);
+  transition: transform .5s var(--ease), opacity .5s var(--ease);
+}
+.reveal-stagger.in-view > *:nth-child(1){ transition-delay: .02s; }
+.reveal-stagger.in-view > *:nth-child(2){ transition-delay: .06s; }
+.reveal-stagger.in-view > *:nth-child(3){ transition-delay: .10s; }
+.reveal-stagger.in-view > *:nth-child(4){ transition-delay: .14s; }
+.reveal-stagger.in-view > *:nth-child(5){ transition-delay: .18s; }
+.reveal-stagger.in-view > *:nth-child(6){ transition-delay: .22s; }
+.reveal-stagger.in-view > *:nth-child(7){ transition-delay: .26s; }
+.reveal-stagger.in-view > *:nth-child(8){ transition-delay: .30s; }
+
+/* Header scroll glow */
+header { transition: box-shadow var(--dur-fast) var(--ease), transform var(--dur-fast) var(--ease), background-color var(--dur-fast) var(--ease); }
+header.scrolled { box-shadow: 0 8px 28px rgba(0,0,0,.12); transform: translateY(-1px); }
+
+/* Buttons micro-interaction */
+.btn {
+  transition: transform var(--dur-fast) var(--ease), box-shadow var(--dur-fast) var(--ease);
+}
+.btn:hover { transform: translateY(-1px); box-shadow: 0 10px 24px rgba(2,8,23,.08); }
+.btn:active { transform: translateY(0); box-shadow: 0 6px 16px rgba(2,8,23,.10); }
+.btn:focus-visible { outline: 0; box-shadow: 0 0 0 3px rgba(11,74,127,.25); }
+
+/* Cards subtle lift */
+.card {
+  transition: transform var(--dur-fast) var(--ease), box-shadow var(--dur-fast) var(--ease);
+  transform-style: preserve-3d;
+}
+.card:hover { transform: translateY(-4px) perspective(800px) rotateX(.8deg); box-shadow: 0 20px 34px rgba(2,8,23,.12); }
+
+/* Link underline swipe */
+a { position: relative; text-decoration: none; }
+a:hover { text-decoration: none; }
+a::after {
+  content:""; position:absolute; left:0; right:100%; bottom:-2px; height:2px;
+  background: linear-gradient(90deg,var(--pcu-accent),var(--pcu-primary));
+  transition: right var(--dur) var(--ease);
+}
+a:hover::after, a:focus-visible::after { right: 0; }
+
+/* Hero gradient shimmer (opt-in via .hero-shimmer) */
+.hero.hero-shimmer { position: relative; isolation: isolate; overflow: hidden; }
+.hero.hero-shimmer::before{
+  content:""; position:absolute; inset:-40% -20%;
+  background: radial-gradient(50% 30% at 70% -10%, rgba(12,74,110,.18), transparent 65%),
+              radial-gradient(40% 30% at 10% 110%, rgba(198,40,40,.12), transparent 60%);
+  animation: pcuShimmer 12s linear infinite alternate;
+  z-index:-1; will-change: transform, opacity; opacity:.85;
+}
+@keyframes pcuShimmer {
+  0%   { transform: translate3d(0,0,0) scale(1);   opacity:.85; }
+  50%  { transform: translate3d(-2%, -1%, 0) scale(1.03); opacity:.95; }
+  100% { transform: translate3d(2%, 1%, 0) scale(1.01);  opacity:.90; }
+}
+
+/* Stats number emphasis once visible */
+.stat .num.in-view {
+  transition: color var(--dur) var(--ease), text-shadow var(--dur) var(--ease);
+  color: var(--pcu-primary);
+  text-shadow: 0 6px 18px rgba(11,74,127,.18);
+}
+
 
 /* ---------- MOBILE FIRST IMPROVEMENTS ---------- */
 
@@ -364,7 +445,7 @@ h2 { font-size: clamp(22px, 4.5vw, 34px); }
 
 <main id="main">
   <!-- HOME -->
-  <section id="home" class="hero">
+  <section id="home" class="hero hero-shimmer">
     <div class="halo"></div>
     <div class="container">
       
@@ -1538,6 +1619,48 @@ h2 { font-size: clamp(22px, 4.5vw, 34px); }
       btn.setAttribute('aria-expanded', open ? 'true' : 'false');
     });
   }
+})();
+</script>
+<script>
+// ====== PCU Motion System bootstrap ======
+(() => {
+  // 0) Opt-in shimmer for hero (adds class if not already present)
+  const hero = document.querySelector('#home.hero');
+  if (hero && !hero.classList.contains('hero-shimmer')) {
+    hero.classList.add('hero-shimmer');
+  }
+
+  // 1) Make all section H2 reveal automatically
+  document.querySelectorAll('section h2').forEach(h => h.classList.add('reveal'));
+
+  // 2) Stagger most grid/galleries automatically
+  const staggerTargets = [
+    '.grid',                // all your grid layouts
+    '#certs .gallery',      // certs gallery
+    '#gallery .gallery',    // photos
+    '#events .slides'       // slides container (captions/images fade nicely)
+  ];
+  document.querySelectorAll(staggerTargets.join(',')).forEach(el => el.classList.add('reveal-stagger'));
+
+  // 3) IntersectionObserver to toggle 'in-view'
+  const io = new IntersectionObserver((entries, obs) => {
+    entries.forEach(e => {
+      if (!e.isIntersecting) return;
+      e.target.classList.add('in-view');
+      obs.unobserve(e.target);
+    });
+  }, { threshold: 0.25 });
+
+  document.querySelectorAll('.reveal, .reveal-stagger, .stat .num').forEach(el => io.observe(el));
+
+  // 4) Header glow on scroll
+  const header = document.querySelector('header');
+  const onScroll = () => {
+    const y = (document.documentElement.scrollTop || document.body.scrollTop);
+    header?.classList.toggle('scrolled', y > 10);
+  };
+  onScroll();
+  window.addEventListener('scroll', onScroll, { passive: true });
 })();
 </script>
 
