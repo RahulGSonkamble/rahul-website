@@ -1696,14 +1696,7 @@ h2 { font-size: clamp(22px, 4.5vw, 34px); }
     };
   });
 </script>
-  <script>
-  async function updateCounter(){
-    const res = await fetch('https://api.countapi.xyz/hit/rahulgsonkamble.github.io/visits');
-    const data = await res.json();
-    document.getElementById('visits').textContent = data.value;
-  }
-  updateCounter();
-</script>
+  
   <script>
   // Mobile nav toggle
   (() => {
@@ -1873,6 +1866,35 @@ h2 { font-size: clamp(22px, 4.5vw, 34px); }
     duration: 1000,   // animation duration
     once: true        // run animation only once
   });
+</script>
+<script>
+(async () => {
+  const el = document.getElementById('visits');
+  if (!el) return;
+
+  // use a simple, safe namespace/key (letters, numbers, dashes)
+  const NS  = 'rahul-website';
+  const KEY = 'total-visits';
+
+  try {
+    // Increment and read in one call
+    const res  = await fetch(`https://api.countapi.xyz/hit/${NS}/${KEY}`, {
+      cache: 'no-store',
+      mode: 'cors'
+    });
+    if (!res.ok) throw new Error('Network response was not ok');
+    const data = await res.json();
+    el.textContent = Number(data.value).toLocaleString('en-IN');
+    // cache for fallback display if a future request is blocked
+    localStorage.setItem('visitCountCache', String(data.value));
+  } catch (err) {
+    // Fallback: show last known value (if any), otherwise a dash
+    const cached = localStorage.getItem('visitCountCache');
+    el.textContent = cached ? Number(cached).toLocaleString('en-IN') : '—';
+    // Optional: uncomment to debug in console
+    // console.warn('Visitor counter error:', err);
+  }
+})();
 </script>
 
 
