@@ -1641,6 +1641,7 @@ h2 { font-size: clamp(22px, 4.5vw, 34px); }
         <p class="tiny muted">
           © <span id="y"></span> Dr. Rahul G. Sonkamble • All Rights Reserved
         </p>
+                <p class="tiny muted">👥 Visitors: <span id="visits"></span></p>
       </div>
     </div>
   </div>
@@ -1694,6 +1695,14 @@ h2 { font-size: clamp(22px, 4.5vw, 34px); }
       alert("Heard: '"+t+"'. Try 'go to publications', 'go to skills', etc.");
     };
   });
+</script>
+  <script>
+  async function updateCounter(){
+    const res = await fetch('https://api.countapi.xyz/hit/rahulgsonkamble.github.io/visits');
+    const data = await res.json();
+    document.getElementById('visits').textContent = data.value;
+  }
+  updateCounter();
 </script>
   <script>
   // Mobile nav toggle
